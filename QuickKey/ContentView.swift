@@ -222,7 +222,7 @@ struct ContentView: View {
                     Section {
                         ForEach(category.shortcuts) { shortcut in
                             let appName = (inFavorites || inAllApps) ? category.name : vm.selectedAppId
-                            ShortcutRow(shortcut: shortcut, appName: appName, query: vm.searchText)
+                            ShortcutRow(shortcut: shortcut, appName: appName)
                         }
                     } header: {
                         HStack(spacing: 8) {
@@ -342,7 +342,6 @@ struct AppTabButton: View {
 struct ShortcutRow: View {
     let shortcut: Shortcut
     let appName: String
-    let query: String
 
     @EnvironmentObject var vm: ShortcutsViewModel
     @EnvironmentObject var settings: SettingsStore
@@ -355,7 +354,7 @@ struct ShortcutRow: View {
         HStack(spacing: 12) {
             VStack(alignment: .leading, spacing: 2) {
                 HStack(spacing: 5) {
-                    Text(highlightedName)
+                    Text(shortcut.name)
                         .font(.system(size: settings.fontSize.body))
                     if isFav && vm.selectedAppId != "Favorites" {
                         Image(systemName: "star.fill")
@@ -420,14 +419,6 @@ struct ShortcutRow: View {
         }
     }
 
-    private var highlightedName: AttributedString {
-        var str = AttributedString(shortcut.name)
-        guard !query.isEmpty,
-              let range = str.range(of: query, options: .caseInsensitive)
-        else { return str }
-        str[range].backgroundColor = .init(.systemYellow.withAlphaComponent(0.35))
-        return str
-    }
 }
 
 // MARK: - Key Combo
