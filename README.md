@@ -17,7 +17,7 @@ A macOS menu bar app that surfaces keyboard shortcuts for whatever app you're cu
 
 <p align="center">
   <a href="https://github.com/BrianB-22/QuickKey/raw/main/Builds/QuickKey%20041726B.dmg">
-    ⬇️ Download QuickKey v1.0 (macOS)
+    ⬇️ Download QuickKey (Latest)
   </a>
 </p>
 
