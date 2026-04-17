@@ -28,7 +28,6 @@ struct ContentView: View {
         .frame(width: 560, height: 660)
         .background(Color(NSColor.windowBackgroundColor))
         .onAppear {
-            searchFocused = true
             keyMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
                 // Let text fields handle their own key events
                 if NSApp.keyWindow?.firstResponder is NSTextView { return event }
