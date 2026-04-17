@@ -77,6 +77,8 @@ Build and run with ⌘R. QuickKey will appear as a keyboard icon in your menu ba
 | ⌥ Space | Open / close QuickKey from any app |
 | ⌥ ⌘ F | Open QuickKey directly on the Favorites tab |
 | ← → | Navigate between app tabs (when search bar is not focused) |
+| ↑ ↓ | Move highlight through the shortcut list |
+| ↩ Return | Trigger the highlighted shortcut (requires Allow Key Combo Clicks to be enabled in Settings) |
 
 ## Settings
 

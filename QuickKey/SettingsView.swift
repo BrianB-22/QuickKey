@@ -1,8 +1,10 @@
 import SwiftUI
+import AppKit
 
 struct SettingsView: View {
     @EnvironmentObject var settings: SettingsStore
     @Environment(\.dismiss) var dismiss
+    @State private var accessibilityGranted = KeyEventSender.isAccessibilityEnabled()
 
     var body: some View {
         VStack(spacing: 0) {
@@ -93,12 +95,41 @@ struct SettingsView: View {
                                 .frame(width: 20)
                             VStack(alignment: .leading, spacing: 1) {
                                 Text("Allow Key Combo Clicks to Activate")
-                                Text("Click a key badge to fire that shortcut in the active app.")
+                                Text("Click a key badge or highlight a shortcut and press Return to fire it. Requires Accessibility permission — see below.")
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
                         }
                     }
+                }
+
+                Section("Permissions") {
+                    HStack(spacing: 10) {
+                        Image(systemName: "hand.raised.fill")
+                            .foregroundColor(accessibilityGranted ? .green : .orange)
+                            .frame(width: 20)
+                        VStack(alignment: .leading, spacing: 1) {
+                            Text("Accessibility Permission")
+                            Text(accessibilityGranted
+                                 ? "Granted — shortcut triggering is active."
+                                 : "Not granted — shortcut triggering won't work.")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                        Spacer()
+                        if accessibilityGranted {
+                            Circle().fill(Color.green).frame(width: 8, height: 8)
+                        } else {
+                            Button("Open Settings") {
+                                NSWorkspace.shared.open(
+                                    URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility")!
+                                )
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .controlSize(.small)
+                        }
+                    }
+                    .padding(.vertical, 2)
                 }
 
                 Section("Keys") {
@@ -152,6 +183,7 @@ struct SettingsView: View {
             }
             .padding(.vertical, 12)
         }
-        .frame(width: 380, height: 650)
+        .frame(width: 380, height: 700)
+        .onAppear { accessibilityGranted = KeyEventSender.isAccessibilityEnabled() }
     }
 }

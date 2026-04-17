@@ -1,5 +1,7 @@
 # Installing QuickKey
 
+> **Note:** Pre-built binaries may occasionally lag slightly behind the current source code, though typically not by much. For the absolute latest features, build from source.
+
 ## Downloading the DMG
 
 Click the `.dmg` filename above, then click the **Download** button on the right side of the page.

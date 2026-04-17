@@ -9,9 +9,20 @@ struct ContentView: View {
     @State private var showSettings = false
     @State private var keyMonitor: Any? = nil
     @State private var searchAllApps: Bool = false
+    @State private var highlightedId: UUID? = nil
 
     private var allTabIds: [String] {
         ["Favorites"] + vm.allApps.map { $0.id }
+    }
+
+    private var flatShortcuts: [(shortcut: Shortcut, appName: String)] {
+        let inFavorites = vm.selectedAppId == "Favorites"
+        let inAllApps = searchAllApps && !vm.searchText.isEmpty
+        let categories = inAllApps ? vm.allAppsSearchResults : vm.filteredCategories
+        return categories.flatMap { cat in
+            let name = (inFavorites || inAllApps) ? cat.name : vm.selectedAppId
+            return cat.shortcuts.map { (shortcut: $0, appName: name) }
+        }
     }
 
     var body: some View {
@@ -29,26 +40,46 @@ struct ContentView: View {
         .background(Color(NSColor.windowBackgroundColor))
         .onAppear {
             keyMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
-                // Let text fields handle their own key events
-                if NSApp.keyWindow?.firstResponder is NSTextView { return event }
                 let ids = allTabIds
                 let current = ids.firstIndex(of: vm.selectedAppId) ?? 0
+                let inTextField = NSApp.keyWindow?.firstResponder is NSTextView
                 switch event.keyCode {
-                case 123: // left arrow
+                case 123: // left arrow — navigate tabs (not when typing)
+                    guard !inTextField else { return event }
                     let newId = ids[max(0, current - 1)]
                     vm.selectedAppId = newId
                     scrollToTabId = newId
                     return nil
-                case 124: // right arrow
+                case 124: // right arrow — navigate tabs (not when typing)
+                    guard !inTextField else { return event }
                     let newId = ids[min(ids.count - 1, current + 1)]
                     vm.selectedAppId = newId
                     scrollToTabId = newId
                     return nil
-                case 125: // down arrow
-                    Self.scrollList(by: 60)
+                case 125: // down arrow — move highlight down
+                    let flat = flatShortcuts
+                    if flat.isEmpty { return nil }
+                    if let cur = highlightedId, let idx = flat.firstIndex(where: { $0.shortcut.id == cur }) {
+                        highlightedId = flat[min(flat.count - 1, idx + 1)].shortcut.id
+                    } else {
+                        highlightedId = flat.first?.shortcut.id
+                    }
                     return nil
-                case 126: // up arrow
-                    Self.scrollList(by: -60)
+                case 126: // up arrow — move highlight up
+                    let flat = flatShortcuts
+                    if flat.isEmpty { return nil }
+                    if let cur = highlightedId, let idx = flat.firstIndex(where: { $0.shortcut.id == cur }) {
+                        highlightedId = flat[max(0, idx - 1)].shortcut.id
+                    } else {
+                        highlightedId = flat.first?.shortcut.id
+                    }
+                    return nil
+                case 36: // return — trigger highlighted shortcut if enabled
+                    if settings.allowKeyComboTrigger,
+                       let cur = highlightedId,
+                       let item = flatShortcuts.first(where: { $0.shortcut.id == cur }) {
+                        vm.triggerShortcut?(item.shortcut.keys)
+                    }
                     return nil
                 default:
                     return event
@@ -62,6 +93,9 @@ struct ContentView: View {
         .sheet(isPresented: $showSettings) {
             SettingsView().environmentObject(settings)
         }
+        .onChange(of: vm.selectedAppId) { _ in highlightedId = nil }
+        .onChange(of: vm.searchText) { _ in highlightedId = nil }
+        .onChange(of: searchAllApps) { _ in highlightedId = nil }
     }
 
     // MARK: Header
@@ -222,30 +256,42 @@ struct ContentView: View {
                 emptySearchState
             }
         } else {
-            List {
-                ForEach(categories) { category in
-                    Section {
-                        ForEach(category.shortcuts) { shortcut in
-                            let appName = (inFavorites || inAllApps) ? category.name : vm.selectedAppId
-                            ShortcutRow(shortcut: shortcut, appName: appName)
+            ScrollViewReader { proxy in
+                List {
+                    ForEach(categories) { category in
+                        Section {
+                            ForEach(category.shortcuts) { shortcut in
+                                let appName = (inFavorites || inAllApps) ? category.name : vm.selectedAppId
+                                ShortcutRow(shortcut: shortcut, appName: appName)
+                                    .id(shortcut.id)
+                                    .listRowBackground(
+                                        highlightedId == shortcut.id
+                                            ? Color.accentColor.opacity(0.13)
+                                            : Color.clear
+                                    )
+                            }
+                        } header: {
+                            HStack(spacing: 8) {
+                                Rectangle()
+                                    .fill(Color.accentColor)
+                                    .frame(width: 3, height: 14)
+                                    .cornerRadius(1.5)
+                                Text(category.name)
+                                    .font(.system(size: settings.fontSize.subheadline, weight: .bold))
+                                    .foregroundStyle(.primary)
+                                    .textCase(nil)
+                            }
+                            .padding(.vertical, 2)
                         }
-                    } header: {
-                        HStack(spacing: 8) {
-                            Rectangle()
-                                .fill(Color.accentColor)
-                                .frame(width: 3, height: 14)
-                                .cornerRadius(1.5)
-                            Text(category.name)
-                                .font(.system(size: settings.fontSize.subheadline, weight: .bold))
-                                .foregroundStyle(.primary)
-                                .textCase(nil)
-                        }
-                        .padding(.vertical, 2)
                     }
                 }
+                .listStyle(.inset)
+                .scrollContentBackground(.hidden)
+                .onChange(of: highlightedId) { id in
+                    guard let id = id else { return }
+                    withAnimation { proxy.scrollTo(id, anchor: .center) }
+                }
             }
-            .listStyle(.inset)
-            .scrollContentBackground(.hidden)
         }
     }
 
@@ -451,52 +497,33 @@ struct KeyComboView: View {
     let keys: String
     var onTrigger: (() -> Void)? = nil
 
-    @State private var isHovered = false
-    @State private var isPressed = false
-
     private var tokens: [String] {
         keys.components(separatedBy: "+").filter { !$0.isEmpty }
     }
 
     var body: some View {
-        HStack(spacing: isHovered ? 5 : 3) {
+        HStack(spacing: 3) {
             ForEach(tokens, id: \.self) { token in
                 if token == "then" {
                     Text("then")
                         .font(.system(size: 11))
                         .foregroundStyle(.secondary)
                 } else {
-                    KeyBadge(label: token, isHighlighted: isHovered)
+                    KeyBadge(label: token)
                 }
             }
         }
-        .scaleEffect(
-            isPressed ? 0.88 : (isHovered ? 1.65 : 1.0),
-            anchor: .trailing
-        )
-        .zIndex(isHovered ? 100 : 0)
         .onHover { hovering in
             if onTrigger != nil {
                 if hovering { NSCursor.pointingHand.push() } else { NSCursor.pop() }
             }
-            withAnimation(.spring(response: 0.22, dampingFraction: 0.58)) {
-                isHovered = hovering
-            }
         }
-        .onTapGesture {
-            // Brief press-down, then fire
-            withAnimation(.easeIn(duration: 0.07)) { isPressed = true }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.08) {
-                withAnimation(.spring(response: 0.2, dampingFraction: 0.5)) { isPressed = false }
-                onTrigger?()
-            }
-        }
+        .onTapGesture { onTrigger?() }
     }
 }
 
 struct KeyBadge: View {
     let label: String
-    var isHighlighted: Bool = false
 
     @EnvironmentObject var settings: SettingsStore
 
@@ -516,25 +543,13 @@ struct KeyBadge: View {
             .font(.system(size: settings.fontSize.body, design: .monospaced).weight(.semibold))
             .padding(.horizontal, 10)
             .padding(.vertical, 5)
-            .background(
-                isHighlighted
-                    ? Color.accentColor.opacity(0.13)
-                    : Color(NSColor.controlBackgroundColor)
-            )
+            .background(Color(NSColor.controlBackgroundColor))
             .clipShape(RoundedRectangle(cornerRadius: 7))
             .overlay(
                 RoundedRectangle(cornerRadius: 7)
-                    .stroke(
-                        isHighlighted ? Color.accentColor : Color(NSColor.separatorColor),
-                        lineWidth: isHighlighted ? 1.5 : 1
-                    )
+                    .stroke(Color(NSColor.separatorColor), lineWidth: 1)
             )
-            .shadow(
-                color: isHighlighted ? Color.accentColor.opacity(0.35) : .black.opacity(0.15),
-                radius: isHighlighted ? 10 : 0,
-                x: 0,
-                y: isHighlighted ? 4 : 2
-            )
+            .shadow(color: .black.opacity(0.15), radius: 0, x: 0, y: 2)
     }
 }
 

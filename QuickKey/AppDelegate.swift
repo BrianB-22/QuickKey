@@ -173,6 +173,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         }
         popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
         popover.contentViewController?.view.window?.makeKey()
+        // Prevent search bar from stealing focus on open
+        DispatchQueue.main.async { [weak self] in
+            self?.popover.contentViewController?.view.window?.makeFirstResponder(nil)
+        }
     }
 
     private func showContextMenu() {
