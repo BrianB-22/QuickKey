@@ -42,14 +42,13 @@
 
 ## App Coverage
 Apps to consider adding:
-- [ ] Keynote / Pages / Numbers
-- [ ] Zoom / Teams / Meet
+- [ ] Microsoft Word
+- [ ] Microsoft PowerPoint
 - [ ] 1Password
-- [ ] Raycast / Alfred
 - [ ] Tower / SourceTree (Git clients)
 - [ ] Sketch
-- [ ] Linear
-- [ ] Spotify
+- [ ] Alfred
+- [ ] Bear
 
 ## Settings Ideas
 - [ ] Popover position preference (left / center / right of menu bar icon)
