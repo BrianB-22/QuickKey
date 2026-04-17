@@ -1452,7 +1452,7 @@ final class ShortcutsDatabase {
                 Shortcut(name: "Set mark",               keys: "⌃+^",         description: "Sets a mark at the cursor to start selecting text. Move the cursor to extend the selection, then Cut or Copy."),
                 Shortcut(name: "Cut selection",          keys: "⌃+K",         description: "After setting a mark and moving the cursor, cuts the selected region into the cut buffer."),
                 Shortcut(name: "Copy selection",         keys: "⌥+6",         description: "After setting a mark, copies the selected region without deleting it."),
-                Shortcut(name: "Select all",             keys: "⌃+^ then ⌥+\\", description: "Set mark at start (⌃+^), then jump to end of file (⌥+\\) to select the entire buffer."),
+                Shortcut(name: "Select all",             keys: "⌃+^+then+⌥+\\", description: "Set mark at start (⌃+^), then jump to end of file (⌥+\\) to select the entire buffer."),
             ]),
             ShortcutCategory(name: "Navigation", shortcuts: [
                 Shortcut(name: "Search",                 keys: "⌃+W",         description: "Opens the search prompt; type a string and press Enter to find it."),

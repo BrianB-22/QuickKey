@@ -426,7 +426,13 @@ struct KeyComboView: View {
     var body: some View {
         HStack(spacing: isHovered ? 5 : 3) {
             ForEach(tokens, id: \.self) { token in
-                KeyBadge(label: token, isHighlighted: isHovered)
+                if token == "then" {
+                    Text("then")
+                        .font(.system(size: 11))
+                        .foregroundStyle(.secondary)
+                } else {
+                    KeyBadge(label: token, isHighlighted: isHovered)
+                }
             }
         }
         .scaleEffect(
