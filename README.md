@@ -88,7 +88,7 @@ The app is built with SwiftUI + AppKit. Key files:
 | `AppDelegate.swift` | Owns the status item, popover, and app lifecycle |
 | `ContentView.swift` | Root SwiftUI view (header, search, tabs, shortcut list) |
 | `ShortcutsViewModel.swift` | Search/filter logic and active app state |
-| `ShortcutsDatabase.swift` | Static shortcut data for all 13 apps |
+| `ShortcutsDatabase.swift` | Static shortcut data for all supported apps |
 | `FavoritesStore.swift` | UserDefaults-backed favorites |
 | `HotkeyManager.swift` | Global hotkey via Carbon `RegisterEventHotKey` |
 | `KeyEventSender.swift` | CGEvent keyboard synthesis for shortcut triggering |
