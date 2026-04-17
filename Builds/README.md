@@ -18,7 +18,7 @@ Because QuickKey is not signed with an Apple Developer certificate, macOS will b
 
 ### macOS Ventura and later (recommended)
 
-1. Double-click QuickKey to trigger the block
+1. Double-click QuickKey — a warning will appear. Click **Done** (do not click Move to Trash)
 2. Open **System Settings → Privacy & Security**
 3. Scroll down to the **"QuickKey was blocked"** message
 4. Click **Open Anyway** and enter your password if prompted
