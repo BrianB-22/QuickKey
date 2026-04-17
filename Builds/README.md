@@ -1,8 +1,15 @@
 # Installing QuickKey
 
-## Steps
+## Downloading the DMG
 
-1. Open the `.dmg` file
+To download the `.dmg` from GitHub:
+
+- **Option A** — Click the `.dmg` filename above, then click the **Download** button on the right side of the page
+- **Option B** — Right-click the `.dmg` filename above → **Save Link As…**
+
+## Installing
+
+1. Open the downloaded `.dmg` file
 2. Drag **QuickKey.app** into your **Applications** folder
 3. Eject the disk image
 
