@@ -6,11 +6,10 @@
 
 A macOS menu bar app that surfaces keyboard shortcuts for whatever app you're currently using. Search, browse, favorite, and trigger shortcuts without leaving the keyboard.
 
-<p align="center">
-  <img src="Screenshot.png" width="420" alt="QuickKey screenshot">
-  &nbsp;&nbsp;
-  <img src="Screenshot2.png" width="420" alt="QuickKey favorites screenshot">
-</p>
+<table align="center"><tr>
+  <td><img src="Screenshot.png" width="340" alt="QuickKey screenshot"></td>
+  <td><img src="Screenshot2.png" width="340" alt="QuickKey favorites screenshot"></td>
+</tr></table>
 
 ## Features
 
