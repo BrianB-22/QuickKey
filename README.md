@@ -8,6 +8,8 @@ A macOS menu bar app that surfaces keyboard shortcuts for whatever app you're cu
 
 <p align="center">
   <img src="Screenshot.png" width="420" alt="QuickKey screenshot">
+  &nbsp;&nbsp;
+  <img src="Screenshot2.png" width="420" alt="QuickKey favorites screenshot">
 </p>
 
 ## Features
