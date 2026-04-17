@@ -460,7 +460,7 @@ struct KeyBadge: View {
     @EnvironmentObject var settings: SettingsStore
 
     private static let symbolToName: [String: String] = [
-        "⌘": "Command", "⌥": "Option", "⌃": "Ctrl", "⇧": "Shift",
+        "⌥": "Option", "⌃": "Ctrl", "⇧": "Shift",
         "⌫": "Delete", "⎋": "Esc", "↑": "Up", "↓": "Down",
         "←": "Left", "→": "Right", "↩": "Return"
     ]
