@@ -204,7 +204,7 @@ final class ShortcutsDatabase {
         id: "Chrome",
         appName: "Chrome",
         icon: "globe",
-        bundleIdentifiers: ["com.google.Chrome", "com.google.Chrome.canary"],
+        bundleIdentifiers: ["com.google.Chrome", "com.google.Chrome.canary", "com.brave.Browser", "com.brave.Browser.beta", "com.brave.Browser.nightly"],
         categories: [
             ShortcutCategory(name: "Navigation", shortcuts: [
                 Shortcut(name: "Back",                   keys: "⌘+[",         description: "Navigates to the previous page in the current tab's history."),
