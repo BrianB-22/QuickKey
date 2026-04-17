@@ -76,6 +76,15 @@ final class ShortcutsViewModel: ObservableObject {
             || shortcut.description.lowercased().contains(query)
     }
 
+    var allAppsSearchResults: [ShortcutCategory] {
+        let query = searchText.trimmingCharacters(in: .whitespaces).lowercased()
+        guard !query.isEmpty else { return [] }
+        return database.allApps.compactMap { app in
+            let hits = app.categories.flatMap { $0.shortcuts }.filter { matches($0, query: query) }
+            return hits.isEmpty ? nil : ShortcutCategory(name: app.appName, shortcuts: hits)
+        }
+    }
+
     /// Set by AppDelegate — closes the popover and fires the key event in the last active app.
     var triggerShortcut: ((String) -> Void)?
 

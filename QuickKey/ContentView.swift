@@ -8,6 +8,7 @@ struct ContentView: View {
     @State private var scrollToTabId: String = ""
     @State private var showSettings = false
     @State private var keyMonitor: Any? = nil
+    @State private var searchAllApps: Bool = false
 
     private var allTabIds: [String] {
         ["Favorites"] + vm.allApps.map { $0.id }
@@ -94,22 +95,37 @@ struct ContentView: View {
 
     private var searchBar: some View {
         HStack(spacing: 8) {
-            Image(systemName: "magnifyingglass")
-                .foregroundStyle(.secondary)
-            TextField("Search shortcuts…", text: $vm.searchText)
-                .textFieldStyle(.plain)
-                .focused($searchFocused)
-            if !vm.searchText.isEmpty {
-                Button { vm.searchText = "" } label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundStyle(.secondary)
+            HStack(spacing: 8) {
+                Image(systemName: "magnifyingglass")
+                    .foregroundStyle(.secondary)
+                TextField("Search shortcuts…", text: $vm.searchText)
+                    .textFieldStyle(.plain)
+                    .focused($searchFocused)
+                if !vm.searchText.isEmpty {
+                    Button { vm.searchText = "" } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundStyle(.secondary)
+                    }
+                    .buttonStyle(.plain)
                 }
-                .buttonStyle(.plain)
             }
+            .padding(9)
+            .background(Color(NSColor.controlBackgroundColor).opacity(0.8))
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+
+            Button {
+                searchAllApps.toggle()
+            } label: {
+                Text("All Apps")
+                    .font(.caption.weight(.medium))
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 6)
+                    .background(searchAllApps ? Color.accentColor : Color(NSColor.controlBackgroundColor))
+                    .foregroundStyle(searchAllApps ? Color.white : Color.secondary)
+                    .clipShape(RoundedRectangle(cornerRadius: 7))
+            }
+            .buttonStyle(.plain)
         }
-        .padding(9)
-        .background(Color(NSColor.controlBackgroundColor).opacity(0.8))
-        .clipShape(RoundedRectangle(cornerRadius: 8))
         .padding(.horizontal, 12)
         .padding(.vertical, 8)
     }
@@ -191,8 +207,10 @@ struct ContentView: View {
     @ViewBuilder
     private var shortcutList: some View {
         let inFavorites = vm.selectedAppId == "Favorites"
+        let inAllApps = searchAllApps && !vm.searchText.isEmpty
+        let categories = inAllApps ? vm.allAppsSearchResults : vm.filteredCategories
 
-        if vm.filteredCategories.isEmpty {
+        if categories.isEmpty {
             if inFavorites && vm.searchText.isEmpty {
                 favoritesEmptyState
             } else {
@@ -200,11 +218,10 @@ struct ContentView: View {
             }
         } else {
             List {
-                ForEach(vm.filteredCategories) { category in
+                ForEach(categories) { category in
                     Section {
                         ForEach(category.shortcuts) { shortcut in
-                            // In favorites tab the category.name IS the source app name
-                            let appName = inFavorites ? category.name : vm.selectedAppId
+                            let appName = (inFavorites || inAllApps) ? category.name : vm.selectedAppId
                             ShortcutRow(shortcut: shortcut, appName: appName, query: vm.searchText)
                         }
                     } header: {
@@ -278,7 +295,10 @@ struct ContentView: View {
     }
 
     private var totalCount: Int {
-        vm.filteredCategories.reduce(0) { $0 + $1.shortcuts.count }
+        let categories = searchAllApps && !vm.searchText.isEmpty
+            ? vm.allAppsSearchResults
+            : vm.filteredCategories
+        return categories.reduce(0) { $0 + $1.shortcuts.count }
     }
 }
 

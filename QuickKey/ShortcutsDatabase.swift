@@ -24,6 +24,7 @@ final class ShortcutsDatabase {
             ShortcutsDatabase.finalCutPro,
             ShortcutsDatabase.excel,
             ShortcutsDatabase.discord,
+            ShortcutsDatabase.iterm2,
             ShortcutsDatabase.zoom,
             ShortcutsDatabase.microsoftTeams,
             ShortcutsDatabase.keynote,
@@ -888,6 +889,61 @@ final class ShortcutsDatabase {
 
     // MARK: - Obsidian
 
+    // MARK: - iTerm2
+
+    static let iterm2 = AppShortcuts(
+        id: "iTerm2",
+        appName: "iTerm2",
+        icon: "terminal.fill",
+        bundleIdentifiers: ["com.googlecode.iterm2"],
+        categories: [
+            ShortcutCategory(name: "Tabs", shortcuts: [
+                Shortcut(name: "New tab",                keys: "⌘+T",         description: "Opens a new tab in the current window."),
+                Shortcut(name: "Close tab",              keys: "⌘+W",         description: "Closes the current tab."),
+                Shortcut(name: "Next tab",               keys: "⌘+⇧+]",       description: "Switches to the next tab to the right."),
+                Shortcut(name: "Previous tab",           keys: "⌘+⇧+[",       description: "Switches to the previous tab to the left."),
+                Shortcut(name: "Go to tab 1–9",          keys: "⌘+1…9",       description: "Jumps directly to the Nth tab."),
+                Shortcut(name: "Move tab right",         keys: "⌘+⌃+⇧+→",     description: "Moves the current tab one position to the right."),
+                Shortcut(name: "Move tab left",          keys: "⌘+⌃+⇧+←",     description: "Moves the current tab one position to the left."),
+            ]),
+            ShortcutCategory(name: "Panes", shortcuts: [
+                Shortcut(name: "Split vertically",       keys: "⌘+D",         description: "Splits the current pane into two side-by-side vertical panes."),
+                Shortcut(name: "Split horizontally",     keys: "⌘+⇧+D",       description: "Splits the current pane into two stacked horizontal panes."),
+                Shortcut(name: "Next pane",              keys: "⌘+]",         description: "Moves focus to the next pane."),
+                Shortcut(name: "Previous pane",          keys: "⌘+[",         description: "Moves focus to the previous pane."),
+                Shortcut(name: "Navigate pane up",       keys: "⌘+⌥+↑",       description: "Moves focus to the pane above."),
+                Shortcut(name: "Navigate pane down",     keys: "⌘+⌥+↓",       description: "Moves focus to the pane below."),
+                Shortcut(name: "Navigate pane left",     keys: "⌘+⌥+←",       description: "Moves focus to the pane to the left."),
+                Shortcut(name: "Navigate pane right",    keys: "⌘+⌥+→",       description: "Moves focus to the pane to the right."),
+                Shortcut(name: "Zoom pane",              keys: "⌘+⇧+Return",  description: "Maximises the current pane to fill the window; press again to restore."),
+            ]),
+            ShortcutCategory(name: "Windows", shortcuts: [
+                Shortcut(name: "New window",             keys: "⌘+N",         description: "Opens a new iTerm2 window with the default profile."),
+                Shortcut(name: "Fullscreen",             keys: "⌘+Return",    description: "Toggles fullscreen mode for the current window."),
+                Shortcut(name: "Hotkey window",          keys: "⌥+Space",     description: "Shows or hides the designated hotkey window (configure in Preferences → Keys)."),
+            ]),
+            ShortcutCategory(name: "Editing", shortcuts: [
+                Shortcut(name: "Copy",                   keys: "⌘+C",         description: "Copies the selected text to the clipboard."),
+                Shortcut(name: "Paste",                  keys: "⌘+V",         description: "Pastes the clipboard contents at the cursor."),
+                Shortcut(name: "Clear scrollback",       keys: "⌘+K",         description: "Clears the terminal screen and scrollback buffer."),
+                Shortcut(name: "Clear screen",           keys: "⌃+L",         description: "Clears the visible screen without clearing the scrollback buffer."),
+            ]),
+            ShortcutCategory(name: "Search & Navigation", shortcuts: [
+                Shortcut(name: "Find",                   keys: "⌘+F",         description: "Opens the find bar to search within the scrollback buffer."),
+                Shortcut(name: "Find next",              keys: "⌘+G",         description: "Jumps to the next search match."),
+                Shortcut(name: "Find previous",          keys: "⌘+⇧+G",       description: "Jumps to the previous search match."),
+                Shortcut(name: "Instant replay",         keys: "⌘+⌥+B",       description: "Scrolls back through recent terminal output second by second."),
+                Shortcut(name: "Scroll to top",          keys: "⌘+Home",      description: "Scrolls to the very top of the scrollback buffer."),
+                Shortcut(name: "Scroll to bottom",       keys: "⌘+End",       description: "Scrolls to the bottom of the buffer."),
+            ]),
+            ShortcutCategory(name: "Misc", shortcuts: [
+                Shortcut(name: "Preferences",            keys: "⌘+,",         description: "Opens iTerm2 Preferences."),
+                Shortcut(name: "Toggle toolbelt",        keys: "⌘+⇧+B",       description: "Shows or hides the toolbelt panel on the right side."),
+                Shortcut(name: "Broadcast input",        keys: "⌘+⌥+I",       description: "Toggles broadcasting keystrokes to all panes simultaneously."),
+            ]),
+        ]
+    )
+
     // MARK: - Zoom
 
     static let zoom = AppShortcuts(
@@ -1414,10 +1470,10 @@ final class ShortcutsDatabase {
                 Shortcut(name: "Open file",              keys: ":e filename",  description: "Opens a file by path in the current buffer."),
             ]),
             ShortcutCategory(name: "Windows & Tabs", shortcuts: [
-                Shortcut(name: "Split horizontal",       keys: "⌃+W S",       description: "Splits the current window horizontally into two panes."),
-                Shortcut(name: "Split vertical",         keys: "⌃+W V",       description: "Splits the current window vertically into two panes."),
-                Shortcut(name: "Navigate panes",         keys: "⌃+W hjkl",    description: "Moves focus between splits using h (left), j (down), k (up), or l (right)."),
-                Shortcut(name: "Close pane",             keys: "⌃+W Q",       description: "Closes the currently focused split pane."),
+                Shortcut(name: "Split horizontal",       keys: "⌃+W+S",       description: "Splits the current window horizontally into two panes."),
+                Shortcut(name: "Split vertical",         keys: "⌃+W+V",       description: "Splits the current window vertically into two panes."),
+                Shortcut(name: "Navigate panes",         keys: "⌃+W+h/j/k/l", description: "Moves focus between splits: h (left), j (down), k (up), l (right)."),
+                Shortcut(name: "Close pane",             keys: "⌃+W+Q",       description: "Closes the currently focused split pane."),
                 Shortcut(name: "New tab",                keys: ":tabnew",      description: "Opens a new empty tab."),
                 Shortcut(name: "Next tab",               keys: "gt",           description: "Moves focus to the next tab to the right."),
                 Shortcut(name: "Previous tab",           keys: "gT",           description: "Moves focus to the previous tab to the left."),
@@ -1566,10 +1622,10 @@ final class ShortcutsDatabase {
         bundleIdentifiers: ["com.superhuman.Superhuman", "com.superhuman.electron"],
         categories: [
             ShortcutCategory(name: "Navigation", shortcuts: [
-                Shortcut(name: "Go to Inbox",            keys: "G→I",          description: "Two-key sequence: press G then I to jump to your Inbox."),
-                Shortcut(name: "Go to Sent",             keys: "G→S",          description: "Two-key sequence: press G then S to jump to Sent mail."),
-                Shortcut(name: "Go to Done",             keys: "G→D",          description: "Two-key sequence: press G then D to jump to Done (archived) mail."),
-                Shortcut(name: "Go to Starred",          keys: "G→⇧+S",        description: "Two-key sequence: press G then Shift+S to jump to Starred messages."),
+                Shortcut(name: "Go to Inbox",            keys: "G+then+I",          description: "Two-key sequence: press G then I to jump to your Inbox."),
+                Shortcut(name: "Go to Sent",             keys: "G+then+S",          description: "Two-key sequence: press G then S to jump to Sent mail."),
+                Shortcut(name: "Go to Done",             keys: "G+then+D",          description: "Two-key sequence: press G then D to jump to Done (archived) mail."),
+                Shortcut(name: "Go to Starred",          keys: "G+then+⇧+S",        description: "Two-key sequence: press G then Shift+S to jump to Starred messages."),
                 Shortcut(name: "Next email",             keys: "J",            description: "Moves focus to the next (older) email in the list."),
                 Shortcut(name: "Previous email",         keys: "K",            description: "Moves focus to the previous (newer) email in the list."),
                 Shortcut(name: "Open email",             keys: "Return",       description: "Opens the focused email to read its full content."),
@@ -1609,12 +1665,12 @@ final class ShortcutsDatabase {
         categories: [
             ShortcutCategory(name: "Navigation", shortcuts: [
                 Shortcut(name: "Command menu",           keys: "⌘+K",         description: "Opens the command menu to quickly navigate, create, or search for anything in Linear."),
-                Shortcut(name: "My Issues",              keys: "G→M",          description: "Two-key sequence: press G then M to go to My Issues."),
-                Shortcut(name: "All Issues",             keys: "G→A",          description: "Two-key sequence: press G then A to view all issues in the workspace."),
-                Shortcut(name: "Projects",               keys: "G→P",          description: "Two-key sequence: press G then P to navigate to Projects."),
-                Shortcut(name: "Cycles",                 keys: "G→C",          description: "Two-key sequence: press G then C to navigate to Cycles."),
-                Shortcut(name: "Inbox",                  keys: "G→I",          description: "Two-key sequence: press G then I to navigate to your Inbox."),
-                Shortcut(name: "Views",                  keys: "G→V",          description: "Two-key sequence: press G then V to navigate to saved Views."),
+                Shortcut(name: "My Issues",              keys: "G+then+M",          description: "Two-key sequence: press G then M to go to My Issues."),
+                Shortcut(name: "All Issues",             keys: "G+then+A",          description: "Two-key sequence: press G then A to view all issues in the workspace."),
+                Shortcut(name: "Projects",               keys: "G+then+P",          description: "Two-key sequence: press G then P to navigate to Projects."),
+                Shortcut(name: "Cycles",                 keys: "G+then+C",          description: "Two-key sequence: press G then C to navigate to Cycles."),
+                Shortcut(name: "Inbox",                  keys: "G+then+I",          description: "Two-key sequence: press G then I to navigate to your Inbox."),
+                Shortcut(name: "Views",                  keys: "G+then+V",          description: "Two-key sequence: press G then V to navigate to saved Views."),
                 Shortcut(name: "Settings",               keys: "⌘+,",          description: "Opens the workspace or user settings."),
             ]),
             ShortcutCategory(name: "Issues", shortcuts: [

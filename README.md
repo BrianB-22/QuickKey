@@ -27,7 +27,7 @@ A macOS menu bar app that surfaces keyboard shortcuts for whatever app you're cu
 
 - **Menu bar utility** — lives in the menu bar with no Dock icon
 - **Auto-detects active app** — opens to the right app's shortcuts automatically
-- **Search** — filter by command name, key combo, or description
+- **Search** — filter by command name, key combo, or description; toggle **All Apps** to search across every app at once
 - **Favorites** — pin shortcuts across any app, persisted between launches
 - **Trigger shortcuts** — click a key combo to fire it in the target app (requires Accessibility permission)
 - **Global hotkey** — ⌥Space opens/closes QuickKey from anywhere
@@ -36,7 +36,7 @@ A macOS menu bar app that surfaces keyboard shortcuts for whatever app you're cu
 
 ## Supported Apps
 
-System, Finder, Safari, Chrome, Firefox, Brave, Arc, VS Code, Cursor, Terminal, Xcode, Slack, Figma, Notion, Obsidian, Photoshop, Lightroom Classic, Illustrator, Premiere Pro, Final Cut Pro, Excel, Discord, Zoom, Microsoft Teams, Keynote, Pages, Numbers, Spotify, Raycast, IntelliJ / WebStorm, Vim / Neovim, nano, GitHub Desktop, Things 3, Superhuman, Linear, Telegram
+System, Finder, Safari, Chrome, Firefox, Brave, Arc, VS Code, Cursor, Terminal, iTerm2, Xcode, Slack, Figma, Notion, Obsidian, Photoshop, Lightroom Classic, Illustrator, Premiere Pro, Final Cut Pro, Excel, Discord, Zoom, Microsoft Teams, Keynote, Pages, Numbers, Spotify, Raycast, IntelliJ / WebStorm, Vim / Neovim, nano, GitHub Desktop, Things 3, Superhuman, Linear, Telegram
 
 ## Requirements
 
