@@ -101,6 +101,22 @@ struct SettingsView: View {
                     }
                 }
 
+                Section("Keys") {
+                    Toggle(isOn: $settings.showKeyNames) {
+                        HStack(spacing: 10) {
+                            Image(systemName: "character.cursor.ibeam")
+                                .foregroundColor(.accentColor)
+                                .frame(width: 20)
+                            VStack(alignment: .leading, spacing: 1) {
+                                Text("Show Key Names Instead")
+                                Text("Displays Command, Option, Ctrl, Shift instead of ⌘ ⌥ ⌃ ⇧.")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                    }
+                }
+
                 Section("Appearance") {
                     HStack(spacing: 10) {
                         Image(systemName: "textformat.size")
@@ -136,6 +152,6 @@ struct SettingsView: View {
             }
             .padding(.vertical, 12)
         }
-        .frame(width: 380, height: 580)
+        .frame(width: 380, height: 650)
     }
 }

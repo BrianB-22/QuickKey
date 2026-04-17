@@ -71,6 +71,10 @@ final class SettingsStore: ObservableObject {
         didSet { UserDefaults.standard.set(favoritesHotkeyEnabled, forKey: "com.quickkey.favoritesHotkey") }
     }
 
+    @Published var showKeyNames: Bool = false {
+        didSet { UserDefaults.standard.set(showKeyNames, forKey: "com.quickkey.showKeyNames") }
+    }
+
     init() {
         launchAtLogin = SMAppService.mainApp.status == .enabled
 
@@ -93,6 +97,11 @@ final class SettingsStore: ObservableObject {
 
         if UserDefaults.standard.object(forKey: "com.quickkey.favoritesHotkey") != nil {
             favoritesHotkeyEnabled = UserDefaults.standard.bool(forKey: "com.quickkey.favoritesHotkey")
+        }
+
+        // Default false — only override if user has explicitly set it
+        if UserDefaults.standard.object(forKey: "com.quickkey.showKeyNames") != nil {
+            showKeyNames = UserDefaults.standard.bool(forKey: "com.quickkey.showKeyNames")
         }
     }
 

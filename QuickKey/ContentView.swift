@@ -459,8 +459,19 @@ struct KeyBadge: View {
 
     @EnvironmentObject var settings: SettingsStore
 
+    private static let symbolToName: [String: String] = [
+        "⌘": "Command", "⌥": "Option", "⌃": "Ctrl", "⇧": "Shift",
+        "⌫": "Delete", "⎋": "Esc", "↑": "Up", "↓": "Down",
+        "←": "Left", "→": "Right", "↩": "Return"
+    ]
+
+    private var displayLabel: String {
+        guard settings.showKeyNames else { return label }
+        return Self.symbolToName[label] ?? label
+    }
+
     var body: some View {
-        Text(label)
+        Text(displayLabel)
             .font(.system(size: settings.fontSize.body, design: .monospaced).weight(.semibold))
             .padding(.horizontal, 10)
             .padding(.vertical, 5)
