@@ -24,6 +24,13 @@ final class ShortcutsDatabase {
             ShortcutsDatabase.finalCutPro,
             ShortcutsDatabase.excel,
             ShortcutsDatabase.discord,
+            ShortcutsDatabase.zoom,
+            ShortcutsDatabase.microsoftTeams,
+            ShortcutsDatabase.keynote,
+            ShortcutsDatabase.pages,
+            ShortcutsDatabase.numbers,
+            ShortcutsDatabase.spotify,
+            ShortcutsDatabase.raycast,
         ]
     }
 
@@ -864,6 +871,238 @@ final class ShortcutsDatabase {
                 Shortcut(name: "GIF picker",             keys: "⌘+G",         description: "Opens the GIF search panel in the message input."),
                 Shortcut(name: "Mention someone",        keys: "@",            description: "Types @ in the message box to start a user or role mention."),
                 Shortcut(name: "Mention channel",        keys: "#",            description: "Types # in the message box to insert a channel link."),
+            ]),
+        ]
+    )
+
+    // MARK: - Obsidian
+
+    // MARK: - Zoom
+
+    static let zoom = AppShortcuts(
+        id: "Zoom",
+        appName: "Zoom",
+        icon: "video.fill",
+        bundleIdentifiers: ["us.zoom.xos"],
+        categories: [
+            ShortcutCategory(name: "Meeting Controls", shortcuts: [
+                Shortcut(name: "Mute / unmute",          keys: "⌘+⇧+A",       description: "Toggles your microphone on or off during a meeting."),
+                Shortcut(name: "Start / stop video",     keys: "⌘+⇧+V",       description: "Turns your camera on or off."),
+                Shortcut(name: "Share screen",           keys: "⌘+⇧+S",       description: "Opens the screen share picker."),
+                Shortcut(name: "Pause / resume share",   keys: "⌘+⇧+T",       description: "Pauses or resumes an active screen share."),
+                Shortcut(name: "Stop screen share",      keys: "⌘+⇧+E",       description: "Ends the current screen share."),
+                Shortcut(name: "Raise / lower hand",     keys: "⌥+Y",         description: "Raises your hand to signal the host, or lowers it."),
+                Shortcut(name: "Reaction",               keys: "⌥+R",         description: "Opens the reactions menu (thumbs up, clap, etc.)."),
+                Shortcut(name: "Start / stop recording", keys: "⌘+⇧+R",       description: "Begins or stops local recording of the meeting."),
+                Shortcut(name: "Leave / end meeting",    keys: "⌘+W",         description: "Opens the leave or end meeting dialog."),
+            ]),
+            ShortcutCategory(name: "Panels", shortcuts: [
+                Shortcut(name: "Participants panel",     keys: "⌘+U",         description: "Shows or hides the Participants panel."),
+                Shortcut(name: "Chat panel",             keys: "⌘+⇧+H",       description: "Opens or closes the in-meeting Chat panel."),
+                Shortcut(name: "Invite participants",    keys: "⌘+I",         description: "Opens the Invite dialog to add people to the meeting."),
+            ]),
+            ShortcutCategory(name: "General", shortcuts: [
+                Shortcut(name: "New meeting",            keys: "⌘+⌃+V",       description: "Starts a new instant meeting."),
+                Shortcut(name: "Join meeting",           keys: "⌘+J",         description: "Opens the Join a Meeting dialog."),
+                Shortcut(name: "Schedule meeting",       keys: "⌘+⇧+J",       description: "Opens the Schedule Meeting window."),
+                Shortcut(name: "Settings",               keys: "⌘+,",         description: "Opens Zoom Preferences."),
+            ]),
+        ]
+    )
+
+    // MARK: - Microsoft Teams
+
+    static let microsoftTeams = AppShortcuts(
+        id: "Microsoft Teams",
+        appName: "Microsoft Teams",
+        icon: "person.3.fill",
+        bundleIdentifiers: ["com.microsoft.teams2", "com.microsoft.teams"],
+        categories: [
+            ShortcutCategory(name: "Navigation", shortcuts: [
+                Shortcut(name: "Search",                 keys: "⌘+E",         description: "Focuses the search bar to find messages, people, or files."),
+                Shortcut(name: "Activity",               keys: "⌘+1",         description: "Switches to the Activity feed."),
+                Shortcut(name: "Chat",                   keys: "⌘+2",         description: "Switches to the Chat section."),
+                Shortcut(name: "Teams",                  keys: "⌘+3",         description: "Switches to the Teams section."),
+                Shortcut(name: "Calendar",               keys: "⌘+4",         description: "Switches to the Calendar view."),
+                Shortcut(name: "Files",                  keys: "⌘+5",         description: "Switches to the Files section."),
+                Shortcut(name: "Settings",               keys: "⌘+,",         description: "Opens Teams Settings."),
+            ]),
+            ShortcutCategory(name: "Messaging", shortcuts: [
+                Shortcut(name: "New chat",               keys: "⌘+N",         description: "Starts a new one-on-one or group chat."),
+                Shortcut(name: "Reply to thread",        keys: "⌘+R",         description: "Starts a reply to the selected message thread."),
+                Shortcut(name: "Expand compose box",     keys: "⌘+⇧+X",       description: "Expands the message compose area for longer messages."),
+                Shortcut(name: "Send message",           keys: "⌘+Return",    description: "Sends the composed message."),
+                Shortcut(name: "Attach file",            keys: "⌘+O",         description: "Opens a file picker to attach a file to your message."),
+            ]),
+            ShortcutCategory(name: "Meetings", shortcuts: [
+                Shortcut(name: "Mute / unmute",          keys: "⌘+⇧+M",       description: "Toggles your microphone on or off in a meeting."),
+                Shortcut(name: "Toggle video",           keys: "⌘+⇧+O",       description: "Turns your camera on or off."),
+                Shortcut(name: "Share screen",           keys: "⌘+⇧+E",       description: "Opens the screen share options."),
+                Shortcut(name: "Raise hand",             keys: "⌘+⇧+K",       description: "Raises or lowers your hand during a meeting."),
+                Shortcut(name: "Leave meeting",          keys: "⌘+⇧+H",       description: "Leaves the current meeting."),
+                Shortcut(name: "Accept video call",      keys: "⌘+⇧+A",       description: "Accepts an incoming video call."),
+                Shortcut(name: "Decline call",           keys: "⌘+⇧+D",       description: "Declines an incoming call."),
+            ]),
+        ]
+    )
+
+    // MARK: - Keynote
+
+    static let keynote = AppShortcuts(
+        id: "Keynote",
+        appName: "Keynote",
+        icon: "presentation.fill",
+        bundleIdentifiers: ["com.apple.iWork.Keynote"],
+        categories: [
+            ShortcutCategory(name: "Presentation", shortcuts: [
+                Shortcut(name: "Play slideshow",         keys: "⌘+Return",    description: "Starts the slideshow from the first slide."),
+                Shortcut(name: "Play from current slide",keys: "⌥+⌘+Return",  description: "Starts the slideshow from the currently selected slide."),
+                Shortcut(name: "Exit slideshow",         keys: "⎋",           description: "Stops the slideshow and returns to the editor."),
+                Shortcut(name: "Next slide",             keys: "→",           description: "Advances to the next slide during the presentation."),
+                Shortcut(name: "Previous slide",         keys: "←",           description: "Goes back to the previous slide during the presentation."),
+                Shortcut(name: "Pause slideshow",        keys: "F",           description: "Freezes the display on the current slide without exiting."),
+            ]),
+            ShortcutCategory(name: "Slides", shortcuts: [
+                Shortcut(name: "New slide",              keys: "⌘+⇧+N",       description: "Adds a new slide after the currently selected slide."),
+                Shortcut(name: "Duplicate slide",        keys: "⌘+D",         description: "Creates a copy of the selected slide."),
+                Shortcut(name: "Delete slide",           keys: "⌫",           description: "Deletes the selected slide."),
+                Shortcut(name: "Skip slide",             keys: "⇧+⌘+H",       description: "Marks the slide as skipped so it won't appear during the slideshow."),
+                Shortcut(name: "Move slide up",          keys: "⌘+⌥+↑",       description: "Moves the selected slide up in the slide order."),
+                Shortcut(name: "Move slide down",        keys: "⌘+⌥+↓",       description: "Moves the selected slide down in the slide order."),
+            ]),
+            ShortcutCategory(name: "Objects", shortcuts: [
+                Shortcut(name: "Group",                  keys: "⌘+⌥+G",       description: "Groups the selected objects so they move and resize together."),
+                Shortcut(name: "Ungroup",                keys: "⌘+⌥+⇧+G",     description: "Ungroups a previously grouped set of objects."),
+                Shortcut(name: "Bring to front",         keys: "⌘+⌥+⇧+F",     description: "Moves the selected object to the front of the layer stack."),
+                Shortcut(name: "Send to back",           keys: "⌘+⌥+⇧+B",     description: "Moves the selected object to the back of the layer stack."),
+                Shortcut(name: "Lock object",            keys: "⌘+L",         description: "Locks the selected object in place so it can't be accidentally moved."),
+            ]),
+            ShortcutCategory(name: "Formatting", shortcuts: [
+                Shortcut(name: "Bold",                   keys: "⌘+B",         description: "Makes the selected text bold."),
+                Shortcut(name: "Italic",                 keys: "⌘+I",         description: "Makes the selected text italic."),
+                Shortcut(name: "Underline",              keys: "⌘+U",         description: "Underlines the selected text."),
+                Shortcut(name: "Format panel",           keys: "⌘+⌥+I",       description: "Opens the Format inspector panel on the right."),
+            ]),
+        ]
+    )
+
+    // MARK: - Pages
+
+    static let pages = AppShortcuts(
+        id: "Pages",
+        appName: "Pages",
+        icon: "doc.richtext.fill",
+        bundleIdentifiers: ["com.apple.iWork.Pages"],
+        categories: [
+            ShortcutCategory(name: "Document", shortcuts: [
+                Shortcut(name: "Word count",             keys: "⌘+⇧+W",       description: "Shows the word, character, and page count for the document."),
+                Shortcut(name: "Find",                   keys: "⌘+F",         description: "Opens the Find toolbar to search for text in the document."),
+                Shortcut(name: "Find & replace",         keys: "⌘+⌥+F",       description: "Opens Find & Replace to find and substitute text."),
+                Shortcut(name: "Insert page break",      keys: "⌘+Return",    description: "Inserts a page break at the cursor position."),
+                Shortcut(name: "Track changes",          keys: "⌘+⇧+T",       description: "Turns change tracking on or off."),
+                Shortcut(name: "Add comment",            keys: "⌘+⇧+K",       description: "Adds a comment at the current cursor position or selection."),
+                Shortcut(name: "Spelling & grammar",     keys: "⌘+;",         description: "Checks spelling and grammar in the document."),
+            ]),
+            ShortcutCategory(name: "Formatting", shortcuts: [
+                Shortcut(name: "Bold",                   keys: "⌘+B",         description: "Makes the selected text bold."),
+                Shortcut(name: "Italic",                 keys: "⌘+I",         description: "Makes the selected text italic."),
+                Shortcut(name: "Underline",              keys: "⌘+U",         description: "Underlines the selected text."),
+                Shortcut(name: "Increase font size",     keys: "⌘++",         description: "Makes the selected text larger."),
+                Shortcut(name: "Decrease font size",     keys: "⌘+-",         description: "Makes the selected text smaller."),
+                Shortcut(name: "Align left",             keys: "⌘+{",         description: "Left-aligns the selected paragraph."),
+                Shortcut(name: "Align right",            keys: "⌘+}",         description: "Right-aligns the selected paragraph."),
+                Shortcut(name: "Center",                 keys: "⌘+|",         description: "Centers the selected paragraph."),
+                Shortcut(name: "Justify",                keys: "⌘+⌥+|",       description: "Justifies the selected paragraph to both margins."),
+            ]),
+        ]
+    )
+
+    // MARK: - Numbers
+
+    static let numbers = AppShortcuts(
+        id: "Numbers",
+        appName: "Numbers",
+        icon: "tablecells.fill",
+        bundleIdentifiers: ["com.apple.iWork.Numbers"],
+        categories: [
+            ShortcutCategory(name: "Navigation", shortcuts: [
+                Shortcut(name: "Go to cell",             keys: "⌘+G",         description: "Jumps to a specific cell by address (e.g. B4)."),
+                Shortcut(name: "Find",                   keys: "⌘+F",         description: "Opens the Find toolbar to search for content in the spreadsheet."),
+                Shortcut(name: "Find & replace",         keys: "⌘+⌥+F",       description: "Opens Find & Replace to find and substitute cell content."),
+                Shortcut(name: "Next sheet",             keys: "⌘+⌥+→",       description: "Switches to the next sheet tab."),
+                Shortcut(name: "Previous sheet",         keys: "⌘+⌥+←",       description: "Switches to the previous sheet tab."),
+            ]),
+            ShortcutCategory(name: "Editing", shortcuts: [
+                Shortcut(name: "Sum formula",            keys: "⌘+⇧+T",       description: "Inserts a SUM formula for the selected cells."),
+                Shortcut(name: "Fill down",              keys: "⌘+D",         description: "Copies the content of the top cell into all selected cells below."),
+                Shortcut(name: "Fill right",             keys: "⌘+R",         description: "Copies the content of the leftmost cell into all selected cells to the right."),
+                Shortcut(name: "Insert row above",       keys: "⌘+⌥+↑",       description: "Inserts a new row above the current row."),
+                Shortcut(name: "Insert row below",       keys: "⌘+⌥+↓",       description: "Inserts a new row below the current row."),
+                Shortcut(name: "Delete row",             keys: "⌘+K",         description: "Deletes the selected row(s)."),
+                Shortcut(name: "Insert column",          keys: "⌘+⌥+→",       description: "Inserts a new column to the right of the current column."),
+            ]),
+            ShortcutCategory(name: "Formatting", shortcuts: [
+                Shortcut(name: "Bold",                   keys: "⌘+B",         description: "Makes the selected cell content bold."),
+                Shortcut(name: "Italic",                 keys: "⌘+I",         description: "Makes the selected cell content italic."),
+                Shortcut(name: "Underline",              keys: "⌘+U",         description: "Underlines the selected cell content."),
+                Shortcut(name: "Format panel",           keys: "⌘+⌥+I",       description: "Opens the Format inspector panel."),
+            ]),
+        ]
+    )
+
+    // MARK: - Spotify
+
+    static let spotify = AppShortcuts(
+        id: "Spotify",
+        appName: "Spotify",
+        icon: "music.note",
+        bundleIdentifiers: ["com.spotify.client"],
+        categories: [
+            ShortcutCategory(name: "Playback", shortcuts: [
+                Shortcut(name: "Play / pause",           keys: "Space",        description: "Starts or pauses playback."),
+                Shortcut(name: "Next track",             keys: "⌘+→",         description: "Skips to the next track."),
+                Shortcut(name: "Previous track",         keys: "⌘+←",         description: "Goes back to the previous track or restarts the current one."),
+                Shortcut(name: "Volume up",              keys: "⌘+↑",         description: "Increases the playback volume."),
+                Shortcut(name: "Volume down",            keys: "⌘+↓",         description: "Decreases the playback volume."),
+                Shortcut(name: "Mute",                   keys: "⌘+⇧+↓",       description: "Mutes the volume without stopping playback."),
+                Shortcut(name: "Shuffle",                keys: "⌘+S",         description: "Toggles shuffle mode on or off."),
+                Shortcut(name: "Repeat",                 keys: "⌘+R",         description: "Cycles through repeat modes: off, repeat all, repeat one."),
+                Shortcut(name: "Like song",              keys: "⌘+⌥+B",       description: "Adds the current track to your Liked Songs."),
+            ]),
+            ShortcutCategory(name: "Navigation", shortcuts: [
+                Shortcut(name: "Search",                 keys: "⌘+L",         description: "Focuses the search bar."),
+                Shortcut(name: "New playlist",           keys: "⌘+N",         description: "Creates a new empty playlist."),
+                Shortcut(name: "Settings",               keys: "⌘+,",         description: "Opens Spotify Settings."),
+                Shortcut(name: "Queue",                  keys: "⌘+U",         description: "Opens the playback queue panel."),
+                Shortcut(name: "Filter in library",      keys: "⌘+F",         description: "Filters your library list by name."),
+            ]),
+        ]
+    )
+
+    // MARK: - Raycast
+
+    static let raycast = AppShortcuts(
+        id: "Raycast",
+        appName: "Raycast",
+        icon: "rays",
+        bundleIdentifiers: ["com.raycast.macos"],
+        categories: [
+            ShortcutCategory(name: "General", shortcuts: [
+                Shortcut(name: "Open Raycast",           keys: "⌥+Space",      description: "Opens the Raycast launcher (default hotkey — may be customized in preferences)."),
+                Shortcut(name: "Open actions panel",     keys: "⌘+K",         description: "Opens the Actions panel for the currently selected result."),
+                Shortcut(name: "Select next result",     keys: "⌘+↓",         description: "Moves selection down to the next result in the list."),
+                Shortcut(name: "Select previous result", keys: "⌘+↑",         description: "Moves selection up to the previous result in the list."),
+                Shortcut(name: "Copy to clipboard",      keys: "⌘+⇧+C",       description: "Copies the selected result to the clipboard."),
+                Shortcut(name: "Show in Finder",         keys: "⌘+Return",    description: "Reveals the selected file or folder in Finder."),
+                Shortcut(name: "Preferences",            keys: "⌘+,",         description: "Opens Raycast Preferences."),
+                Shortcut(name: "Close / dismiss",        keys: "⎋",           description: "Closes the Raycast window."),
+            ]),
+            ShortcutCategory(name: "Extensions & AI", shortcuts: [
+                Shortcut(name: "AI Chat",                keys: "⌥+Space",      description: "Open Raycast then type 'AI' to start an AI Chat session."),
+                Shortcut(name: "Quicklinks",             keys: "⌘+⇧+Q",       description: "Opens the Quicklinks browser to jump to saved URLs."),
+                Shortcut(name: "Snippets",               keys: "⌘+⇧+S",       description: "Opens the Snippets browser to find and paste saved text."),
+                Shortcut(name: "Clipboard history",      keys: "⌘+⇧+V",       description: "Opens the Clipboard History to paste a previous copy."),
+                Shortcut(name: "Floating notes",         keys: "⌘+⇧+N",       description: "Opens Floating Notes for quick scratch-pad text."),
             ]),
         ]
     )

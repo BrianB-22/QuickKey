@@ -36,7 +36,7 @@ A macOS menu bar app that surfaces keyboard shortcuts for whatever app you're cu
 
 ## Supported Apps
 
-System, Finder, Safari, Chrome, Arc, VS Code, Cursor, Terminal, Xcode, Slack, Figma, Notion, Obsidian, Photoshop, Final Cut Pro, Excel, Discord
+System, Finder, Safari, Chrome, Arc, VS Code, Cursor, Terminal, Xcode, Slack, Figma, Notion, Obsidian, Photoshop, Final Cut Pro, Excel, Discord, Zoom, Microsoft Teams, Keynote, Pages, Numbers, Spotify, Raycast
 
 ## Requirements
 
