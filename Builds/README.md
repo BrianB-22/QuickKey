@@ -2,10 +2,9 @@
 
 ## Downloading the DMG
 
-To download the `.dmg` from GitHub:
+Click the `.dmg` filename above, then click the **Download** button on the right side of the page.
 
-- **Option A** — Click the `.dmg` filename above, then click the **Download** button on the right side of the page
-- **Option B** — Right-click the `.dmg` filename above → **Save Link As…**
+> **Note:** Do not use right-click → Save Link As — GitHub will save a broken file instead of the actual DMG.
 
 ## Installing
 
