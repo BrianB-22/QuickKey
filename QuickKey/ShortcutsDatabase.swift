@@ -31,6 +31,17 @@ final class ShortcutsDatabase {
             ShortcutsDatabase.numbers,
             ShortcutsDatabase.spotify,
             ShortcutsDatabase.raycast,
+            ShortcutsDatabase.illustrator,
+            ShortcutsDatabase.premierePro,
+            ShortcutsDatabase.lightroomClassic,
+            ShortcutsDatabase.intellij,
+            ShortcutsDatabase.vim,
+            ShortcutsDatabase.nano,
+            ShortcutsDatabase.githubDesktop,
+            ShortcutsDatabase.things3,
+            ShortcutsDatabase.superhuman,
+            ShortcutsDatabase.linear,
+            ShortcutsDatabase.telegram,
         ]
     }
 
@@ -211,7 +222,7 @@ final class ShortcutsDatabase {
         id: "Chrome",
         appName: "Chrome",
         icon: "globe",
-        bundleIdentifiers: ["com.google.Chrome", "com.google.Chrome.canary", "com.brave.Browser", "com.brave.Browser.beta", "com.brave.Browser.nightly"],
+        bundleIdentifiers: ["com.google.Chrome", "com.google.Chrome.canary", "com.brave.Browser", "com.brave.Browser.beta", "com.brave.Browser.nightly", "org.mozilla.firefox"],
         categories: [
             ShortcutCategory(name: "Navigation", shortcuts: [
                 Shortcut(name: "Back",                   keys: "⌘+[",         description: "Navigates to the previous page in the current tab's history."),
@@ -1103,6 +1114,542 @@ final class ShortcutsDatabase {
                 Shortcut(name: "Snippets",               keys: "⌘+⇧+S",       description: "Opens the Snippets browser to find and paste saved text."),
                 Shortcut(name: "Clipboard history",      keys: "⌘+⇧+V",       description: "Opens the Clipboard History to paste a previous copy."),
                 Shortcut(name: "Floating notes",         keys: "⌘+⇧+N",       description: "Opens Floating Notes for quick scratch-pad text."),
+            ]),
+        ]
+    )
+
+    // MARK: - Illustrator
+
+    static let illustrator = AppShortcuts(
+        id: "Illustrator",
+        appName: "Illustrator",
+        icon: "pencil.tip.crop.circle.fill",
+        bundleIdentifiers: ["com.adobe.illustrator"],
+        categories: [
+            ShortcutCategory(name: "Tools", shortcuts: [
+                Shortcut(name: "Selection tool",         keys: "V",            description: "Activates the Selection tool for selecting and moving whole objects."),
+                Shortcut(name: "Direct Selection tool",  keys: "A",            description: "Activates the Direct Selection tool for editing individual anchor points and path segments."),
+                Shortcut(name: "Pen tool",               keys: "P",            description: "Activates the Pen tool for drawing precise paths and bezier curves."),
+                Shortcut(name: "Type tool",              keys: "T",            description: "Activates the Type tool for adding and editing text."),
+                Shortcut(name: "Rectangle tool",         keys: "M",            description: "Activates the Rectangle tool for drawing rectangles and squares."),
+                Shortcut(name: "Ellipse tool",           keys: "L",            description: "Activates the Ellipse tool for drawing ovals and circles."),
+                Shortcut(name: "Brush tool",             keys: "B",            description: "Activates the Brush tool for freehand painting strokes."),
+                Shortcut(name: "Pencil tool",            keys: "N",            description: "Activates the Pencil tool for drawing freehand paths."),
+                Shortcut(name: "Scissors tool",          keys: "C",            description: "Activates the Scissors tool to cut paths at anchor points or segments."),
+                Shortcut(name: "Zoom tool",              keys: "Z",            description: "Activates the Zoom tool; click to zoom in, hold ⌥ and click to zoom out."),
+                Shortcut(name: "Hand tool",              keys: "H",            description: "Activates the Hand tool for panning the canvas without moving objects."),
+                Shortcut(name: "Eyedropper tool",        keys: "I",            description: "Activates the Eyedropper tool to sample and apply colors from artwork."),
+            ]),
+            ShortcutCategory(name: "Edit", shortcuts: [
+                Shortcut(name: "Undo",                   keys: "⌘+Z",         description: "Reverses the last action."),
+                Shortcut(name: "Redo",                   keys: "⌘+⇧+Z",       description: "Re-applies the last undone action."),
+                Shortcut(name: "Copy",                   keys: "⌘+C",         description: "Copies the selected objects to the clipboard."),
+                Shortcut(name: "Cut",                    keys: "⌘+X",         description: "Cuts the selected objects to the clipboard."),
+                Shortcut(name: "Paste in Place",         keys: "⌘+⇧+V",       description: "Pastes clipboard contents at the exact same position they were copied from."),
+                Shortcut(name: "Paste in Front",         keys: "⌘+F",         description: "Pastes clipboard contents directly in front of the selected object in the stacking order."),
+                Shortcut(name: "Paste in Back",          keys: "⌘+B",         description: "Pastes clipboard contents directly behind the selected object in the stacking order."),
+            ]),
+            ShortcutCategory(name: "Object", shortcuts: [
+                Shortcut(name: "Group",                  keys: "⌘+G",         description: "Groups selected objects together so they can be moved and transformed as one unit."),
+                Shortcut(name: "Ungroup",                keys: "⌘+⇧+G",       description: "Breaks a group apart into individual objects."),
+                Shortcut(name: "Lock",                   keys: "⌘+2",         description: "Locks selected objects so they cannot be accidentally moved or edited."),
+                Shortcut(name: "Unlock All",             keys: "⌘+⌥+2",       description: "Unlocks all locked objects on the current artboard."),
+                Shortcut(name: "Hide",                   keys: "⌘+3",         description: "Hides selected objects from view without deleting them."),
+                Shortcut(name: "Show All",               keys: "⌘+⌥+3",       description: "Makes all hidden objects visible again."),
+                Shortcut(name: "Bring to Front",         keys: "⌘+⇧+]",       description: "Moves selected objects to the very top of the stacking order."),
+                Shortcut(name: "Send to Back",           keys: "⌘+⇧+[",       description: "Moves selected objects to the very bottom of the stacking order."),
+                Shortcut(name: "Bring Forward",          keys: "⌘+]",         description: "Moves selected objects one step up in the stacking order."),
+                Shortcut(name: "Send Backward",          keys: "⌘+[",         description: "Moves selected objects one step down in the stacking order."),
+                Shortcut(name: "Join paths",             keys: "⌘+J",         description: "Joins two or more open path endpoints to close or connect them."),
+                Shortcut(name: "Make Clipping Mask",     keys: "⌘+7",         description: "Uses the top object as a clipping mask to hide portions of objects below it."),
+            ]),
+            ShortcutCategory(name: "View", shortcuts: [
+                Shortcut(name: "Zoom in",                keys: "⌘++",         description: "Increases the view magnification."),
+                Shortcut(name: "Zoom out",               keys: "⌘+-",         description: "Decreases the view magnification."),
+                Shortcut(name: "Fit to window",          keys: "⌘+0",         description: "Scales the view so the entire artboard fits in the window."),
+                Shortcut(name: "Actual size",            keys: "⌘+1",         description: "Resets the view to 100% zoom."),
+                Shortcut(name: "Preview/Outline toggle", keys: "⌘+Y",         description: "Toggles between Preview mode (showing fills and strokes) and Outline mode (showing just paths)."),
+                Shortcut(name: "Show/Hide Grid",         keys: "⌘+\"",        description: "Toggles the pixel grid overlay on and off."),
+                Shortcut(name: "Show/Hide Guides",       keys: "⌘+;",         description: "Toggles visibility of all guide lines on the artboard."),
+                Shortcut(name: "Show/Hide Rulers",       keys: "⌘+R",         description: "Toggles the horizontal and vertical rulers along the edges of the canvas."),
+            ]),
+            ShortcutCategory(name: "Type", shortcuts: [
+                Shortcut(name: "Show Character panel",   keys: "⌘+T",         description: "Opens the Character panel for controlling font, size, leading, and tracking."),
+                Shortcut(name: "Show Paragraph panel",   keys: "⌘+⌥+T",       description: "Opens the Paragraph panel for alignment, indentation, and spacing settings."),
+                Shortcut(name: "Increase font size",     keys: "⌘+⇧+>",       description: "Increases the font size of selected text by the increment set in preferences."),
+                Shortcut(name: "Decrease font size",     keys: "⌘+⇧+<",       description: "Decreases the font size of selected text by the increment set in preferences."),
+            ]),
+        ]
+    )
+
+    // MARK: - Premiere Pro
+
+    static let premierePro = AppShortcuts(
+        id: "Premiere Pro",
+        appName: "Premiere Pro",
+        icon: "film.stack.fill",
+        bundleIdentifiers: ["com.adobe.PremierePro"],
+        categories: [
+            ShortcutCategory(name: "Playback", shortcuts: [
+                Shortcut(name: "Play/Pause",             keys: "Space",        description: "Starts or pauses playback of the sequence."),
+                Shortcut(name: "Shuttle Left",           keys: "J",            description: "Plays the sequence in reverse; press multiple times to increase reverse speed."),
+                Shortcut(name: "Stop",                   keys: "K",            description: "Stops playback and holds the current position."),
+                Shortcut(name: "Shuttle Right",          keys: "L",            description: "Plays the sequence forward; press multiple times to increase speed."),
+                Shortcut(name: "Step Forward",           keys: "→",            description: "Advances the playhead one frame forward."),
+                Shortcut(name: "Step Back",              keys: "←",            description: "Moves the playhead one frame backward."),
+                Shortcut(name: "Play In to Out",         keys: "⌃+⇧+Space",   description: "Plays only the portion of the sequence between the In and Out points."),
+            ]),
+            ShortcutCategory(name: "Editing", shortcuts: [
+                Shortcut(name: "Razor tool",             keys: "C",            description: "Activates the Razor tool to cut a clip at the playhead position."),
+                Shortcut(name: "Selection tool",         keys: "V",            description: "Switches back to the Selection tool for moving and trimming clips."),
+                Shortcut(name: "Ripple Edit tool",       keys: "B",            description: "Activates the Ripple Edit tool, which trims clips and closes the resulting gap automatically."),
+                Shortcut(name: "Set In Point",           keys: "I",            description: "Marks the current playhead position as the In Point for the source clip or sequence."),
+                Shortcut(name: "Set Out Point",          keys: "O",            description: "Marks the current playhead position as the Out Point for the source clip or sequence."),
+                Shortcut(name: "Clear In Point",         keys: "⌃+⇧+I",       description: "Removes the previously set In Point."),
+                Shortcut(name: "Clear Out Point",        keys: "⌃+⇧+O",       description: "Removes the previously set Out Point."),
+                Shortcut(name: "Add Edit",               keys: "⌘+K",         description: "Cuts all tracks at the current playhead position, like applying the Razor to all."),
+                Shortcut(name: "Ripple Delete",          keys: "⌥+⌫",         description: "Deletes selected clips and automatically closes the gap by pulling subsequent clips left."),
+                Shortcut(name: "Lift",                   keys: ";",            description: "Removes the In-to-Out range from the sequence, leaving a gap."),
+                Shortcut(name: "Extract",                keys: "'",            description: "Removes the In-to-Out range and closes the gap by rippling downstream clips."),
+            ]),
+            ShortcutCategory(name: "Timeline", shortcuts: [
+                Shortcut(name: "Zoom in",                keys: "=",            description: "Zooms in on the timeline to show clips at a finer time scale."),
+                Shortcut(name: "Zoom out",               keys: "-",            description: "Zooms out on the timeline to show more of the sequence."),
+                Shortcut(name: "Fit Timeline",           keys: "⇧+\\",        description: "Zooms the timeline so the entire sequence fits in the visible area."),
+                Shortcut(name: "New Sequence",           keys: "⌘+N",         description: "Creates a new sequence in the current project."),
+                Shortcut(name: "Snap",                   keys: "S",            description: "Toggles snapping on or off, controlling whether clips snap to playhead and other clips."),
+                Shortcut(name: "Linked Selection",       keys: "⇧+L",         description: "Toggles whether video and audio are selected together when clicking a linked clip."),
+            ]),
+            ShortcutCategory(name: "Panels", shortcuts: [
+                Shortcut(name: "Project panel",          keys: "⇧+1",         description: "Brings the Project panel to focus."),
+                Shortcut(name: "Source Monitor",         keys: "⇧+2",         description: "Brings the Source Monitor panel to focus."),
+                Shortcut(name: "Timeline panel",         keys: "⇧+3",         description: "Brings the Timeline panel to focus."),
+                Shortcut(name: "Program Monitor",        keys: "⇧+4",         description: "Brings the Program Monitor panel to focus."),
+                Shortcut(name: "Audio Track Mixer",      keys: "⇧+6",         description: "Brings the Audio Track Mixer panel to focus."),
+                Shortcut(name: "Effects panel",          keys: "⇧+7",         description: "Brings the Effects panel to focus for browsing and applying video/audio effects."),
+            ]),
+            ShortcutCategory(name: "File", shortcuts: [
+                Shortcut(name: "Import",                 keys: "⌘+I",         description: "Opens the Import dialog to bring media files into the project."),
+                Shortcut(name: "Export Media",           keys: "⌘+M",         description: "Opens the Export Media dialog to render and export the sequence."),
+                Shortcut(name: "Save",                   keys: "⌘+S",         description: "Saves the current project."),
+            ]),
+        ]
+    )
+
+    // MARK: - Lightroom Classic
+
+    static let lightroomClassic = AppShortcuts(
+        id: "Lightroom Classic",
+        appName: "Lightroom Classic",
+        icon: "camera.filters",
+        bundleIdentifiers: ["com.adobe.Lightroom"],
+        categories: [
+            ShortcutCategory(name: "Modules", shortcuts: [
+                Shortcut(name: "Library (Grid view)",    keys: "G",            description: "Switches to the Library module and opens the Grid view of your photo collection."),
+                Shortcut(name: "Library (Loupe view)",   keys: "E",            description: "Switches to the Library module and opens the Loupe view for a single photo."),
+                Shortcut(name: "Develop module",         keys: "D",            description: "Switches to the Develop module for non-destructive editing of the selected photo."),
+                Shortcut(name: "Map module",             keys: "⌘+⌥+3",       description: "Switches to the Map module to view and assign GPS locations."),
+                Shortcut(name: "Book module",            keys: "⌘+⌥+4",       description: "Switches to the Book module for creating photo books."),
+                Shortcut(name: "Slideshow module",       keys: "⌘+⌥+5",       description: "Switches to the Slideshow module for building presentations."),
+                Shortcut(name: "Print module",           keys: "⌘+⌥+6",       description: "Switches to the Print module for setting up print layouts."),
+            ]),
+            ShortcutCategory(name: "Library", shortcuts: [
+                Shortcut(name: "Grid view",              keys: "G",            description: "Shows all photos as a grid of thumbnails."),
+                Shortcut(name: "Loupe view",             keys: "E",            description: "Shows the selected photo enlarged for a detailed look."),
+                Shortcut(name: "Compare view",           keys: "C",            description: "Shows two photos side-by-side for direct comparison."),
+                Shortcut(name: "Survey view",            keys: "N",            description: "Shows multiple selected photos together to help narrow down a selection."),
+                Shortcut(name: "Pick flag",              keys: "P",            description: "Flags the selected photo as a Pick, marking it as a keeper."),
+                Shortcut(name: "Reject flag",            keys: "X",            description: "Flags the selected photo as Rejected for easy batch deletion."),
+                Shortcut(name: "Remove flag",            keys: "U",            description: "Removes any flag (Pick or Reject) from the selected photo."),
+                Shortcut(name: "Rate 1 star",            keys: "1",            description: "Assigns a 1-star rating to the selected photo."),
+                Shortcut(name: "Rate 2 stars",           keys: "2",            description: "Assigns a 2-star rating to the selected photo."),
+                Shortcut(name: "Rate 3 stars",           keys: "3",            description: "Assigns a 3-star rating to the selected photo."),
+                Shortcut(name: "Rate 4 stars",           keys: "4",            description: "Assigns a 4-star rating to the selected photo."),
+                Shortcut(name: "Rate 5 stars",           keys: "5",            description: "Assigns a 5-star rating to the selected photo."),
+                Shortcut(name: "Add to Quick Collection", keys: "B",           description: "Adds the selected photo to the Quick Collection for temporary gathering."),
+            ]),
+            ShortcutCategory(name: "Develop", shortcuts: [
+                Shortcut(name: "Crop tool",              keys: "R",            description: "Activates the Crop Overlay tool for cropping and straightening photos."),
+                Shortcut(name: "Spot Removal tool",      keys: "Q",            description: "Activates the Spot Removal tool for healing blemishes or removing unwanted objects."),
+                Shortcut(name: "Graduated Filter",       keys: "M",            description: "Activates the Graduated Filter for applying adjustments that fade across the photo."),
+                Shortcut(name: "Adjustment Brush",       keys: "K",            description: "Activates the Adjustment Brush for painting localized edits onto specific areas."),
+                Shortcut(name: "Auto Tone",              keys: "⌘+U",         description: "Automatically sets exposure, contrast, and other tone adjustments based on image analysis."),
+                Shortcut(name: "Reset all settings",     keys: "⌘+⇧+R",       description: "Resets all Develop module adjustments to the defaults, removing all edits."),
+                Shortcut(name: "Copy settings",          keys: "⌘+⇧+C",       description: "Opens the Copy Settings dialog to choose which adjustments to copy from this photo."),
+                Shortcut(name: "Paste settings",         keys: "⌘+⇧+V",       description: "Pastes previously copied settings onto the selected photo."),
+                Shortcut(name: "Sync settings",          keys: "⌘+⇧+S",       description: "Opens the Sync Settings dialog to apply adjustments from this photo to multiple selected photos."),
+                Shortcut(name: "Before/After view",      keys: "Y",            description: "Toggles a split view showing the photo before and after your Develop edits."),
+            ]),
+            ShortcutCategory(name: "Navigation", shortcuts: [
+                Shortcut(name: "Next photo",             keys: "→",            description: "Moves to the next photo in the current collection or filmstrip."),
+                Shortcut(name: "Previous photo",         keys: "←",            description: "Moves to the previous photo in the current collection or filmstrip."),
+                Shortcut(name: "Zoom in",                keys: "⌘++",         description: "Zooms in on the photo in Loupe or Develop view."),
+                Shortcut(name: "Zoom out",               keys: "⌘+-",         description: "Zooms out on the photo in Loupe or Develop view."),
+                Shortcut(name: "Fit in window",          keys: "⌘+0",         description: "Fits the entire photo within the current view area."),
+            ]),
+        ]
+    )
+
+    // MARK: - IntelliJ
+
+    static let intellij = AppShortcuts(
+        id: "IntelliJ",
+        appName: "IntelliJ / WebStorm",
+        icon: "brain.head.profile",
+        bundleIdentifiers: ["com.jetbrains.intellij", "com.jetbrains.intellij.ce", "com.jetbrains.WebStorm", "com.jetbrains.goland", "com.jetbrains.pycharm", "com.jetbrains.rubymine", "com.jetbrains.rider"],
+        categories: [
+            ShortcutCategory(name: "Navigation", shortcuts: [
+                Shortcut(name: "Search Everywhere",      keys: "⇧⇧",          description: "Press Shift twice to open Search Everywhere and find classes, files, actions, and symbols."),
+                Shortcut(name: "Find File",              keys: "⌘+⇧+O",       description: "Opens a fuzzy file finder to quickly navigate to any file in the project."),
+                Shortcut(name: "Find Action",            keys: "⌘+⇧+A",       description: "Opens the action search to run any IDE command by name without menus."),
+                Shortcut(name: "Go to Class",            keys: "⌘+O",         description: "Opens a dialog to quickly navigate to any class in the project by typing its name."),
+                Shortcut(name: "Go to Line",             keys: "⌘+L",         description: "Prompts for a line number and jumps the cursor directly to that line."),
+                Shortcut(name: "Recent Files",           keys: "⌘+E",         description: "Shows a popup of recently opened files for quick re-navigation."),
+                Shortcut(name: "Recent Locations",       keys: "⌘+⇧+E",       description: "Shows a popup of recent editing locations with code snippets for context."),
+                Shortcut(name: "Back",                   keys: "⌘+[",         description: "Navigates back to the previous cursor location in the navigation history."),
+                Shortcut(name: "Forward",                keys: "⌘+]",         description: "Navigates forward in the navigation history after going back."),
+                Shortcut(name: "Go to Declaration",      keys: "⌘+B",         description: "Jumps to the declaration of the symbol under the cursor."),
+                Shortcut(name: "Find Usages",            keys: "⌥+F7",        description: "Finds all places in the project where the symbol under the cursor is used."),
+            ]),
+            ShortcutCategory(name: "Editing", shortcuts: [
+                Shortcut(name: "Reformat Code",          keys: "⌘+⌥+L",       description: "Applies the project's code style formatting rules to the current file or selection."),
+                Shortcut(name: "Duplicate Line",         keys: "⌘+D",         description: "Duplicates the current line or selection and inserts the copy below."),
+                Shortcut(name: "Delete Line",            keys: "⌘+Y",         description: "Deletes the entire current line without leaving an empty line."),
+                Shortcut(name: "Comment Line",           keys: "⌘+/",         description: "Toggles a line comment on the current line or selected lines."),
+                Shortcut(name: "Block Comment",          keys: "⌘+⌥+/",       description: "Wraps the selected code in a block comment."),
+                Shortcut(name: "Move Line Up",           keys: "⌘+⇧+↑",       description: "Moves the current line or selection up by one line."),
+                Shortcut(name: "Move Line Down",         keys: "⌘+⇧+↓",       description: "Moves the current line or selection down by one line."),
+                Shortcut(name: "Extend Selection",       keys: "⌥+↑",         description: "Incrementally expands the selection to the next enclosing code construct."),
+                Shortcut(name: "Shrink Selection",       keys: "⌥+↓",         description: "Shrinks the selection back to the previous, smaller code construct."),
+                Shortcut(name: "Quick Fix",              keys: "⌥+Return",    description: "Shows a list of available quick fixes and intention actions for the code at the cursor."),
+            ]),
+            ShortcutCategory(name: "Refactor", shortcuts: [
+                Shortcut(name: "Rename",                 keys: "⇧+F6",        description: "Renames the symbol under the cursor and updates all references throughout the project."),
+                Shortcut(name: "Extract Method",         keys: "⌘+⌥+M",       description: "Extracts the selected code block into a new method, replacing the original with a call."),
+                Shortcut(name: "Extract Variable",       keys: "⌘+⌥+V",       description: "Extracts the selected expression into a local variable."),
+                Shortcut(name: "Inline",                 keys: "⌘+⌥+N",       description: "Inlines a variable, method, or constant by replacing all usages with its definition."),
+                Shortcut(name: "Move",                   keys: "F6",           description: "Moves the selected class or method to a different file or scope."),
+                Shortcut(name: "Refactor This",          keys: "⌃+T",         description: "Opens a menu of all available refactoring options for the symbol under the cursor."),
+            ]),
+            ShortcutCategory(name: "Run & Debug", shortcuts: [
+                Shortcut(name: "Run",                    keys: "⌃+R",         description: "Runs the current run configuration."),
+                Shortcut(name: "Debug",                  keys: "⌃+D",         description: "Starts the current run configuration in debug mode."),
+                Shortcut(name: "Stop",                   keys: "⌘+F2",        description: "Stops the currently running process."),
+                Shortcut(name: "Toggle Breakpoint",      keys: "⌘+F8",        description: "Adds or removes a breakpoint on the current line."),
+                Shortcut(name: "Step Over",              keys: "F8",           description: "Executes the current line and moves to the next, stepping over method calls."),
+                Shortcut(name: "Step Into",              keys: "F7",           description: "Steps into the method call on the current line."),
+                Shortcut(name: "Resume",                 keys: "⌥+⌘+R",       description: "Continues execution until the next breakpoint or the program ends."),
+            ]),
+            ShortcutCategory(name: "Search", shortcuts: [
+                Shortcut(name: "Find",                   keys: "⌘+F",         description: "Opens the in-file search bar to find text in the current file."),
+                Shortcut(name: "Replace",                keys: "⌘+R",         description: "Opens the find and replace bar in the current file."),
+                Shortcut(name: "Find in Files",          keys: "⌘+⇧+F",       description: "Searches across all files in the project for the specified text or pattern."),
+                Shortcut(name: "Replace in Files",       keys: "⌘+⇧+R",       description: "Searches and replaces text across all files in the project."),
+                Shortcut(name: "Parameter Info",         keys: "⌘+P",         description: "Shows the parameter types and names for the method call at the cursor."),
+                Shortcut(name: "Quick Documentation",    keys: "F1",           description: "Shows inline documentation for the symbol under the cursor."),
+            ]),
+        ]
+    )
+
+    // MARK: - Vim
+
+    static let vim = AppShortcuts(
+        id: "Vim",
+        appName: "Vim / Neovim",
+        icon: "terminal",
+        bundleIdentifiers: ["org.vim.MacVim", "com.neovim.nvim"],
+        categories: [
+            ShortcutCategory(name: "Normal Mode – Motion", shortcuts: [
+                Shortcut(name: "Move left",              keys: "h",            description: "Moves the cursor one character to the left."),
+                Shortcut(name: "Move down",              keys: "j",            description: "Moves the cursor one line down."),
+                Shortcut(name: "Move up",                keys: "k",            description: "Moves the cursor one line up."),
+                Shortcut(name: "Move right",             keys: "l",            description: "Moves the cursor one character to the right."),
+                Shortcut(name: "Next word",              keys: "w",            description: "Jumps forward to the start of the next word."),
+                Shortcut(name: "Previous word",          keys: "b",            description: "Jumps backward to the start of the previous word."),
+                Shortcut(name: "End of word",            keys: "e",            description: "Jumps forward to the end of the current or next word."),
+                Shortcut(name: "Line start",             keys: "0",            description: "Moves the cursor to the very first character of the current line."),
+                Shortcut(name: "First non-blank",        keys: "^",            description: "Moves the cursor to the first non-whitespace character of the current line."),
+                Shortcut(name: "Line end",               keys: "$",            description: "Moves the cursor to the last character of the current line."),
+                Shortcut(name: "File start",             keys: "gg",           description: "Jumps to the very first line of the file."),
+                Shortcut(name: "File end",               keys: "G",            description: "Jumps to the very last line of the file."),
+                Shortcut(name: "Go to line N",           keys: "NG",           description: "Jumps to a specific line number, e.g. type 42 then G to go to line 42."),
+            ]),
+            ShortcutCategory(name: "Normal Mode – Editing", shortcuts: [
+                Shortcut(name: "Delete character",       keys: "x",            description: "Deletes the character under the cursor."),
+                Shortcut(name: "Delete line",            keys: "dd",           description: "Deletes the entire current line and places it in the register."),
+                Shortcut(name: "Change line",            keys: "cc",           description: "Deletes the current line and enters Insert mode to replace it."),
+                Shortcut(name: "Yank line",              keys: "yy",           description: "Copies (yanks) the entire current line into the register."),
+                Shortcut(name: "Paste after",            keys: "p",            description: "Pastes the register contents after the cursor position."),
+                Shortcut(name: "Paste before",           keys: "P",            description: "Pastes the register contents before the cursor position."),
+                Shortcut(name: "Undo",                   keys: "u",            description: "Undoes the last change."),
+                Shortcut(name: "Redo",                   keys: "⌃+R",         description: "Re-applies the last undone change."),
+                Shortcut(name: "Join lines",             keys: "J",            description: "Joins the current line with the line below it, removing the line break."),
+                Shortcut(name: "Repeat last",            keys: ".",            description: "Repeats the last editing command, making repetitive edits fast."),
+                Shortcut(name: "Replace character",      keys: "r",            description: "Replaces the character under the cursor with the next key you type, staying in Normal mode."),
+            ]),
+            ShortcutCategory(name: "Normal Mode – Visual", shortcuts: [
+                Shortcut(name: "Visual mode",            keys: "v",            description: "Enters Visual mode to select characters; move the cursor to extend the selection."),
+                Shortcut(name: "Visual line mode",       keys: "V",            description: "Enters Visual Line mode to select whole lines at a time."),
+                Shortcut(name: "Visual block mode",      keys: "⌃+V",         description: "Enters Visual Block mode to select a rectangular block of text across multiple lines."),
+                Shortcut(name: "Indent",                 keys: ">",            description: "Indents the selected lines by one level."),
+                Shortcut(name: "Dedent",                 keys: "<",            description: "Removes one level of indentation from the selected lines."),
+            ]),
+            ShortcutCategory(name: "Insert Mode", shortcuts: [
+                Shortcut(name: "Insert before cursor",   keys: "i",            description: "Enters Insert mode, placing the cursor before the current character."),
+                Shortcut(name: "Insert after cursor",    keys: "a",            description: "Enters Insert mode, placing the cursor after the current character."),
+                Shortcut(name: "New line below",         keys: "o",            description: "Opens a new line below the current line and enters Insert mode."),
+                Shortcut(name: "New line above",         keys: "O",            description: "Opens a new line above the current line and enters Insert mode."),
+                Shortcut(name: "Exit insert mode",       keys: "Esc",          description: "Returns to Normal mode from Insert mode."),
+            ]),
+            ShortcutCategory(name: "Command Mode", shortcuts: [
+                Shortcut(name: "Save",                   keys: ":w",           description: "Writes (saves) the current buffer to disk."),
+                Shortcut(name: "Quit",                   keys: ":q",           description: "Quits Vim if no unsaved changes exist."),
+                Shortcut(name: "Save & quit",            keys: ":wq",          description: "Saves the file and then quits Vim."),
+                Shortcut(name: "Force quit",             keys: ":q!",          description: "Quits without saving, discarding all unsaved changes."),
+                Shortcut(name: "Search",                 keys: "/pattern",     description: "Enters search mode; type a pattern and press Enter to find the first match."),
+                Shortcut(name: "Next match",             keys: "n",            description: "Jumps to the next occurrence of the current search pattern."),
+                Shortcut(name: "Previous match",         keys: "N",            description: "Jumps to the previous occurrence of the current search pattern."),
+                Shortcut(name: "Global substitute",      keys: ":%s/old/new/g", description: "Replaces every occurrence of 'old' with 'new' throughout the entire file."),
+                Shortcut(name: "Open file",              keys: ":e filename",  description: "Opens a file by path in the current buffer."),
+            ]),
+            ShortcutCategory(name: "Windows & Tabs", shortcuts: [
+                Shortcut(name: "Split horizontal",       keys: "⌃+W S",       description: "Splits the current window horizontally into two panes."),
+                Shortcut(name: "Split vertical",         keys: "⌃+W V",       description: "Splits the current window vertically into two panes."),
+                Shortcut(name: "Navigate panes",         keys: "⌃+W hjkl",    description: "Moves focus between splits using h (left), j (down), k (up), or l (right)."),
+                Shortcut(name: "Close pane",             keys: "⌃+W Q",       description: "Closes the currently focused split pane."),
+                Shortcut(name: "New tab",                keys: ":tabnew",      description: "Opens a new empty tab."),
+                Shortcut(name: "Next tab",               keys: "gt",           description: "Moves focus to the next tab to the right."),
+                Shortcut(name: "Previous tab",           keys: "gT",           description: "Moves focus to the previous tab to the left."),
+            ]),
+        ]
+    )
+
+    // MARK: - Nano
+
+    static let nano = AppShortcuts(
+        id: "Nano",
+        appName: "nano",
+        icon: "terminal.fill",
+        bundleIdentifiers: [],
+        categories: [
+            ShortcutCategory(name: "File", shortcuts: [
+                Shortcut(name: "Save (Write Out)",       keys: "⌃+O",         description: "Prompts for a filename and writes the current buffer to disk."),
+                Shortcut(name: "Exit",                   keys: "⌃+X",         description: "Exits nano. If there are unsaved changes, you will be prompted to save or discard them."),
+                Shortcut(name: "Read file",              keys: "⌃+R",         description: "Inserts the contents of another file at the current cursor position."),
+            ]),
+            ShortcutCategory(name: "Edit", shortcuts: [
+                Shortcut(name: "Cut line",               keys: "⌃+K",         description: "Cuts the current line and places it in the cut buffer (equivalent to Kill Line)."),
+                Shortcut(name: "Paste",                  keys: "⌃+U",         description: "Pastes the contents of the cut buffer at the current cursor position."),
+                Shortcut(name: "Copy line",              keys: "⌥+6",         description: "Copies the current line (or marked region) to the cut buffer without deleting it."),
+                Shortcut(name: "Undo",                   keys: "⌥+U",         description: "Undoes the last editing action."),
+                Shortcut(name: "Redo",                   keys: "⌥+E",         description: "Re-applies the last undone action."),
+            ]),
+            ShortcutCategory(name: "Navigation", shortcuts: [
+                Shortcut(name: "Search",                 keys: "⌃+W",         description: "Opens the search prompt; type a string and press Enter to find it."),
+                Shortcut(name: "Search next",            keys: "⌥+W",         description: "Repeats the last search and moves to the next match."),
+                Shortcut(name: "Go to line",             keys: "⌃+_",         description: "Prompts for a line number and column, then jumps directly to that position."),
+                Shortcut(name: "Go to beginning of line", keys: "⌃+A",        description: "Moves the cursor to the beginning of the current line."),
+                Shortcut(name: "Go to end of line",      keys: "⌃+E",         description: "Moves the cursor to the end of the current line."),
+                Shortcut(name: "Page down",              keys: "⌃+V",         description: "Scrolls the view down by one page."),
+                Shortcut(name: "Page up",                keys: "⌃+Y",         description: "Scrolls the view up by one page."),
+            ]),
+            ShortcutCategory(name: "Misc", shortcuts: [
+                Shortcut(name: "Help",                   keys: "⌃+G",         description: "Opens the built-in help text showing all available shortcuts."),
+                Shortcut(name: "Where is cursor",        keys: "⌃+C",         description: "Displays the current cursor position (line number, column, and character offset)."),
+                Shortcut(name: "Mark text",              keys: "⌃+^",         description: "Sets a mark at the current cursor position to begin selecting a region of text."),
+                Shortcut(name: "Spell check",            keys: "⌃+T",         description: "Runs the spell checker on the current buffer."),
+            ]),
+        ]
+    )
+
+    // MARK: - GitHub Desktop
+
+    static let githubDesktop = AppShortcuts(
+        id: "GitHub Desktop",
+        appName: "GitHub Desktop",
+        icon: "arrow.triangle.branch",
+        bundleIdentifiers: ["com.github.GitHubClient"],
+        categories: [
+            ShortcutCategory(name: "Repository", shortcuts: [
+                Shortcut(name: "Fetch origin",           keys: "⌘+⇧+F",       description: "Fetches the latest changes from the remote without merging, updating remote-tracking branches."),
+                Shortcut(name: "Push",                   keys: "⌘+P",         description: "Pushes your committed local changes to the remote repository."),
+                Shortcut(name: "Pull",                   keys: "⌘+⇧+P",       description: "Pulls the latest commits from the remote and merges them into the current branch."),
+                Shortcut(name: "New repository",         keys: "⌘+N",         description: "Creates a new local Git repository."),
+                Shortcut(name: "Add local repository",   keys: "⌘+O",         description: "Opens a file picker to add an existing local Git repository to GitHub Desktop."),
+                Shortcut(name: "Clone repository",       keys: "⌘+⇧+O",       description: "Clones a remote repository from GitHub to a local directory."),
+                Shortcut(name: "Repository settings",    keys: "⌘+I",         description: "Opens the settings for the current repository, including remote and ignored files."),
+                Shortcut(name: "Open in terminal",       keys: "⌘+`",         description: "Opens the current repository in the default terminal at the repo root."),
+                Shortcut(name: "Open in editor",         keys: "⌘+⇧+A",       description: "Opens the current repository in the configured external code editor."),
+            ]),
+            ShortcutCategory(name: "Branches", shortcuts: [
+                Shortcut(name: "New branch",             keys: "⌘+⇧+N",       description: "Creates a new branch off the current branch."),
+                Shortcut(name: "Rename branch",          keys: "F2",           description: "Renames the currently checked-out branch."),
+                Shortcut(name: "Delete branch",          keys: "⌘+⌫",         description: "Deletes the selected branch after confirmation."),
+                Shortcut(name: "Merge into current",     keys: "⌘+⇧+M",       description: "Opens the merge dialog to merge another branch into the current branch."),
+                Shortcut(name: "Compare on GitHub",      keys: "⌘+⇧+C",       description: "Opens a comparison between the current branch and the default branch on GitHub.com."),
+                Shortcut(name: "Switch to previous branch", keys: "⌃+Tab",    description: "Switches back to the branch you were on before the current one."),
+            ]),
+            ShortcutCategory(name: "Changes", shortcuts: [
+                Shortcut(name: "Commit",                 keys: "⌘+Return",    description: "Creates a commit with the staged changes and the message typed in the summary field."),
+                Shortcut(name: "Discard all changes",    keys: "⌘+⇧+⌫",       description: "Permanently discards all uncommitted changes in the working directory."),
+                Shortcut(name: "Open file",              keys: "⌘+⌥+O",       description: "Opens the currently selected changed file in the default editor."),
+            ]),
+            ShortcutCategory(name: "View", shortcuts: [
+                Shortcut(name: "Changes tab",            keys: "⌘+1",         description: "Switches to the Changes tab showing modified, added, and deleted files."),
+                Shortcut(name: "History tab",            keys: "⌘+2",         description: "Switches to the History tab showing the commit log for the current branch."),
+                Shortcut(name: "Toggle sidebar",         keys: "⌘+⇧+K",       description: "Shows or hides the left sidebar with repository and branch navigation."),
+                Shortcut(name: "Expand/collapse diff",   keys: "⌘+⇧+D",       description: "Expands or collapses the diff view for the selected changed file."),
+            ]),
+        ]
+    )
+
+    // MARK: - Things 3
+
+    static let things3 = AppShortcuts(
+        id: "Things 3",
+        appName: "Things 3",
+        icon: "checkmark.circle.fill",
+        bundleIdentifiers: ["com.culturedcode.ThingsMac"],
+        categories: [
+            ShortcutCategory(name: "Navigation", shortcuts: [
+                Shortcut(name: "Inbox",                  keys: "⌘+1",         description: "Jumps to the Inbox, where new uncategorized tasks land."),
+                Shortcut(name: "Today",                  keys: "⌘+2",         description: "Jumps to Today, showing tasks scheduled or due today."),
+                Shortcut(name: "Upcoming",               keys: "⌘+3",         description: "Jumps to Upcoming, showing tasks scheduled for future dates."),
+                Shortcut(name: "Anytime",                keys: "⌘+4",         description: "Jumps to Anytime, showing all tasks not yet scheduled."),
+                Shortcut(name: "Someday",                keys: "⌘+5",         description: "Jumps to Someday, for tasks you want to do eventually with no fixed date."),
+                Shortcut(name: "Logbook",                keys: "⌘+6",         description: "Opens the Logbook showing all completed and cancelled tasks."),
+                Shortcut(name: "Find",                   keys: "⌘+F",         description: "Opens the search bar to find tasks by keyword across all lists."),
+            ]),
+            ShortcutCategory(name: "Tasks", shortcuts: [
+                Shortcut(name: "New to-do",              keys: "⌘+N",         description: "Creates a new task in the currently viewed list."),
+                Shortcut(name: "New project",            keys: "⌘+⌥+N",       description: "Creates a new project for grouping related tasks."),
+                Shortcut(name: "New heading",            keys: "⌘+⇧+N",       description: "Adds a heading to organize tasks within a project or list."),
+                Shortcut(name: "Quick Entry",            keys: "⌃+Space",     description: "Opens the Quick Entry panel to capture a new task from anywhere on your Mac."),
+                Shortcut(name: "Complete task",          keys: "⌘+K",         description: "Marks the selected task as complete and moves it to the Logbook."),
+                Shortcut(name: "Delete task",            keys: "⌘+⌫",         description: "Deletes the selected task or project after confirmation."),
+                Shortcut(name: "Move to project",        keys: "⌘+⇧+M",       description: "Opens a picker to move the selected task into a project."),
+                Shortcut(name: "Schedule",               keys: "⌘+S",         description: "Opens a date picker to schedule the selected task for a specific day."),
+                Shortcut(name: "Set deadline",           keys: "⌃+D",         description: "Opens a date picker to set a hard deadline on the selected task."),
+                Shortcut(name: "Add tags",               keys: "⌘+T",         description: "Opens the tag picker to assign one or more tags to the selected task."),
+                Shortcut(name: "Show in project",        keys: "⌘+⌥+R",       description: "Reveals the selected task within its parent project context."),
+            ]),
+            ShortcutCategory(name: "View", shortcuts: [
+                Shortcut(name: "Toggle sidebar",         keys: "⌘+⌥+S",       description: "Shows or hides the left sidebar for navigating between lists and areas."),
+                Shortcut(name: "Show/hide evening",      keys: "⌘+E",         description: "Toggles the Evening section in Today view for tasks you plan to do in the evening."),
+            ]),
+        ]
+    )
+
+    // MARK: - Superhuman
+
+    static let superhuman = AppShortcuts(
+        id: "Superhuman",
+        appName: "Superhuman",
+        icon: "bolt.envelope.fill",
+        bundleIdentifiers: ["com.superhuman.Superhuman", "com.superhuman.electron"],
+        categories: [
+            ShortcutCategory(name: "Navigation", shortcuts: [
+                Shortcut(name: "Go to Inbox",            keys: "G→I",          description: "Two-key sequence: press G then I to jump to your Inbox."),
+                Shortcut(name: "Go to Sent",             keys: "G→S",          description: "Two-key sequence: press G then S to jump to Sent mail."),
+                Shortcut(name: "Go to Done",             keys: "G→D",          description: "Two-key sequence: press G then D to jump to Done (archived) mail."),
+                Shortcut(name: "Go to Starred",          keys: "G→⇧+S",        description: "Two-key sequence: press G then Shift+S to jump to Starred messages."),
+                Shortcut(name: "Next email",             keys: "J",            description: "Moves focus to the next (older) email in the list."),
+                Shortcut(name: "Previous email",         keys: "K",            description: "Moves focus to the previous (newer) email in the list."),
+                Shortcut(name: "Open email",             keys: "Return",       description: "Opens the focused email to read its full content."),
+                Shortcut(name: "Back to list",           keys: "U",            description: "Returns from the open email back to the message list."),
+            ]),
+            ShortcutCategory(name: "Actions", shortcuts: [
+                Shortcut(name: "Reply",                  keys: "R",            description: "Opens a reply to the sender of the focused email."),
+                Shortcut(name: "Reply all",              keys: "A",            description: "Opens a reply addressed to all recipients of the focused email."),
+                Shortcut(name: "Forward",                keys: "F",            description: "Forwards the focused email to a new recipient."),
+                Shortcut(name: "Done / Archive",         keys: "E",            description: "Archives the email and moves it to Done, clearing it from your inbox."),
+                Shortcut(name: "Delete",                 keys: "⌘+⌫",         description: "Deletes the focused email permanently."),
+                Shortcut(name: "Star",                   keys: "S",            description: "Stars the focused email for quick retrieval later."),
+                Shortcut(name: "Mark unread",            keys: "⇧+U",          description: "Marks the focused email as unread."),
+                Shortcut(name: "Mute",                   keys: "M",            description: "Mutes the thread so future replies don't notify you."),
+                Shortcut(name: "Remind me",              keys: "H",            description: "Snoozes the email to reappear in your inbox at a later time."),
+            ]),
+            ShortcutCategory(name: "Compose", shortcuts: [
+                Shortcut(name: "New email",              keys: "C",            description: "Opens the compose window to write a new email."),
+                Shortcut(name: "Send",                   keys: "⌘+Return",    description: "Sends the composed email."),
+                Shortcut(name: "Send and archive",       keys: "⌘+⇧+Return",  description: "Sends the email and immediately archives the thread."),
+                Shortcut(name: "Add CC",                 keys: "⌘+⇧+C",       description: "Adds the CC field to the compose window."),
+                Shortcut(name: "Add BCC",                keys: "⌘+⇧+B",       description: "Adds the BCC field to the compose window."),
+            ]),
+            ShortcutCategory(name: "Search", shortcuts: [
+                Shortcut(name: "Search",                 keys: "⌘+K",         description: "Opens the Superhuman command bar to search emails or run commands."),
+            ]),
+        ]
+    )
+
+    // MARK: - Linear
+
+    static let linear = AppShortcuts(
+        id: "Linear",
+        appName: "Linear",
+        icon: "square.3.layers.3d.top.filled",
+        bundleIdentifiers: ["com.linear", "linear.app.Linear"],
+        categories: [
+            ShortcutCategory(name: "Navigation", shortcuts: [
+                Shortcut(name: "Command menu",           keys: "⌘+K",         description: "Opens the command menu to quickly navigate, create, or search for anything in Linear."),
+                Shortcut(name: "My Issues",              keys: "G→M",          description: "Two-key sequence: press G then M to go to My Issues."),
+                Shortcut(name: "All Issues",             keys: "G→A",          description: "Two-key sequence: press G then A to view all issues in the workspace."),
+                Shortcut(name: "Projects",               keys: "G→P",          description: "Two-key sequence: press G then P to navigate to Projects."),
+                Shortcut(name: "Cycles",                 keys: "G→C",          description: "Two-key sequence: press G then C to navigate to Cycles."),
+                Shortcut(name: "Inbox",                  keys: "G→I",          description: "Two-key sequence: press G then I to navigate to your Inbox."),
+                Shortcut(name: "Views",                  keys: "G→V",          description: "Two-key sequence: press G then V to navigate to saved Views."),
+                Shortcut(name: "Settings",               keys: "⌘+,",          description: "Opens the workspace or user settings."),
+            ]),
+            ShortcutCategory(name: "Issues", shortcuts: [
+                Shortcut(name: "Create issue",           keys: "C",            description: "Opens the create issue dialog to add a new issue to the current team."),
+                Shortcut(name: "Set status",             keys: "S",            description: "Opens the status picker for the focused issue."),
+                Shortcut(name: "Set assignee",           keys: "A",            description: "Opens the assignee picker for the focused issue."),
+                Shortcut(name: "Set priority",           keys: "P",            description: "Opens the priority picker for the focused issue."),
+                Shortcut(name: "Set label",              keys: "L",            description: "Opens the label picker to add or change labels on the focused issue."),
+                Shortcut(name: "Set project",            keys: "⇧+P",          description: "Opens the project picker to assign the focused issue to a project."),
+                Shortcut(name: "Subscribe",              keys: "⌥+S",          description: "Subscribes you to notifications for the focused issue."),
+                Shortcut(name: "Copy issue URL",         keys: "⌘+⇧+.",        description: "Copies the URL of the focused issue to the clipboard."),
+                Shortcut(name: "Archive issue",          keys: "⌘+⌫",          description: "Archives the focused issue, removing it from active views."),
+            ]),
+            ShortcutCategory(name: "Views", shortcuts: [
+                Shortcut(name: "Filter",                 keys: "F",            description: "Opens the filter panel to narrow the issue list by status, assignee, label, and more."),
+                Shortcut(name: "Display settings",       keys: "D",            description: "Opens display options for grouping, ordering, and showing fields in the current view."),
+                Shortcut(name: "Open detail",            keys: "Return",       description: "Opens the detail panel for the focused issue."),
+            ]),
+        ]
+    )
+
+    // MARK: - Telegram
+
+    static let telegram = AppShortcuts(
+        id: "Telegram",
+        appName: "Telegram",
+        icon: "paperplane.fill",
+        bundleIdentifiers: ["ru.keepcoder.Telegram", "org.telegram.desktop"],
+        categories: [
+            ShortcutCategory(name: "Navigation", shortcuts: [
+                Shortcut(name: "Search",                 keys: "⌘+F",         description: "Opens the global search to find messages, contacts, or chats."),
+                Shortcut(name: "Next chat",              keys: "⌘+↓",         description: "Moves focus to the next chat in the list."),
+                Shortcut(name: "Previous chat",          keys: "⌘+↑",         description: "Moves focus to the previous chat in the list."),
+                Shortcut(name: "Next chat (alt)",        keys: "⌃+Tab",       description: "Alternative shortcut to move to the next chat."),
+                Shortcut(name: "Previous chat (alt)",    keys: "⌃+⇧+Tab",     description: "Alternative shortcut to move to the previous chat."),
+                Shortcut(name: "Archive",                keys: "⌘+⌥+A",       description: "Archives the selected chat to declutter your chat list."),
+                Shortcut(name: "New group",              keys: "⌘+N",         description: "Opens the dialog to create a new group chat."),
+                Shortcut(name: "New channel",            keys: "⌘+⇧+N",       description: "Opens the dialog to create a new channel."),
+            ]),
+            ShortcutCategory(name: "Messages", shortcuts: [
+                Shortcut(name: "Send message",           keys: "Return",       description: "Sends the message typed in the compose field."),
+                Shortcut(name: "New line in message",    keys: "⌘+Return",    description: "Inserts a newline in the compose field without sending the message."),
+                Shortcut(name: "Delete message",         keys: "⌘+⌫",         description: "Deletes the selected message (your own messages only)."),
+                Shortcut(name: "Edit last message",      keys: "↑",            description: "Press the up arrow in an empty compose field to edit your most recently sent message."),
+            ]),
+            ShortcutCategory(name: "Calls", shortcuts: [
+                Shortcut(name: "New voice call",         keys: "⌘+⌥+C",       description: "Initiates a voice call with the contact in the currently open chat."),
+            ]),
+            ShortcutCategory(name: "Appearance", shortcuts: [
+                Shortcut(name: "Toggle dark mode",       keys: "⌘+⇧+D",       description: "Switches between light and dark themes."),
+                Shortcut(name: "Zoom in",                keys: "⌘++",         description: "Increases the text and UI size."),
+                Shortcut(name: "Zoom out",               keys: "⌘+-",         description: "Decreases the text and UI size."),
             ]),
         ]
     )
