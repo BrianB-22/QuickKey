@@ -24,5 +24,15 @@ struct AppShortcuts: Identifiable {
     let appName: String
     let icon: String        // SF Symbol name
     let bundleIdentifiers: [String]
+    let hostBundleIdentifiers: [String]  // parent apps this tool runs inside (e.g. Terminal for Vim)
     let categories: [ShortcutCategory]
+
+    init(id: String, appName: String, icon: String, bundleIdentifiers: [String], hostBundleIdentifiers: [String] = [], categories: [ShortcutCategory]) {
+        self.id = id
+        self.appName = appName
+        self.icon = icon
+        self.bundleIdentifiers = bundleIdentifiers
+        self.hostBundleIdentifiers = hostBundleIdentifiers
+        self.categories = categories
+    }
 }

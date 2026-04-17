@@ -26,10 +26,14 @@ final class ShortcutsViewModel: ObservableObject {
     var allApps: [AppShortcuts] {
         guard settings.showInstalledAppsOnly else { return database.allApps }
         return database.allApps.filter { app in
-            guard !app.bundleIdentifiers.isEmpty else { return true }
-            return app.bundleIdentifiers.contains {
+            if app.bundleIdentifiers.isEmpty && app.hostBundleIdentifiers.isEmpty { return true }
+            let directMatch = app.bundleIdentifiers.contains {
                 NSWorkspace.shared.urlForApplication(withBundleIdentifier: $0) != nil
             }
+            let hostMatch = app.hostBundleIdentifiers.contains {
+                NSWorkspace.shared.urlForApplication(withBundleIdentifier: $0) != nil
+            }
+            return directMatch || hostMatch
         }
     }
 
@@ -78,11 +82,13 @@ final class ShortcutsViewModel: ObservableObject {
     // Tracked active app — updated by notification, never stale
     @Published var activeAppName: String? = nil
     @Published var activeAppHasData: Bool = false
+    @Published var activeBundleId: String? = nil
 
     // Called by AppDelegate whenever the frontmost (non-QuickKey) app changes
     func updateActiveApp(_ app: NSRunningApplication) {
         activeAppName = app.localizedName
         let bundleId = app.bundleIdentifier
+        activeBundleId = bundleId
         let knownName = bundleId.flatMap { database.appName(forBundleId: $0) }
         activeAppHasData = knownName != nil
         if let name = knownName {
@@ -90,5 +96,10 @@ final class ShortcutsViewModel: ObservableObject {
         } else {
             selectedAppId = "Favorites"
         }
+    }
+
+    func isHostedApp(_ app: AppShortcuts) -> Bool {
+        guard let bundleId = activeBundleId else { return false }
+        return app.hostBundleIdentifiers.contains(bundleId)
     }
 }

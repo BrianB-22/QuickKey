@@ -147,7 +147,8 @@ struct ContentView: View {
 
                         ForEach(vm.allApps) { app in
                             AppTabButton(icon: app.icon, name: app.appName,
-                                         isSelected: vm.selectedAppId == app.id) {
+                                         isSelected: vm.selectedAppId == app.id,
+                                         isHosted: vm.isHostedApp(app)) {
                                 vm.selectedAppId = app.id
                                 vm.searchText = ""
                                 scrollToTabId = app.id
@@ -287,6 +288,7 @@ struct AppTabButton: View {
     let icon: String
     let name: String
     let isSelected: Bool
+    var isHosted: Bool = false
     let action: () -> Void
 
     @EnvironmentObject var settings: SettingsStore
@@ -299,6 +301,11 @@ struct AppTabButton: View {
                 Text(name)
                     .font(.system(size: settings.fontSize.tabLabel,
                                   weight: isSelected ? .semibold : .regular))
+                if isHosted && !isSelected {
+                    Circle()
+                        .fill(Color.orange)
+                        .frame(width: 5, height: 5)
+                }
             }
             .padding(.horizontal, 10)
             .padding(.vertical, 5)

@@ -1358,6 +1358,7 @@ final class ShortcutsDatabase {
         appName: "Vim / Neovim",
         icon: "terminal",
         bundleIdentifiers: ["org.vim.MacVim", "com.neovim.nvim"],
+        hostBundleIdentifiers: ["com.apple.Terminal", "com.googlecode.iterm2", "net.kovidgoyal.kitty", "com.github.wez.wezterm"],
         categories: [
             ShortcutCategory(name: "Normal Mode – Motion", shortcuts: [
                 Shortcut(name: "Move left",              keys: "h",            description: "Moves the cursor one character to the left."),
@@ -1431,6 +1432,7 @@ final class ShortcutsDatabase {
         appName: "nano",
         icon: "terminal.fill",
         bundleIdentifiers: [],
+        hostBundleIdentifiers: ["com.apple.Terminal", "com.googlecode.iterm2", "net.kovidgoyal.kitty", "com.github.wez.wezterm"],
         categories: [
             ShortcutCategory(name: "File", shortcuts: [
                 Shortcut(name: "Save (Write Out)",       keys: "⌃+O",         description: "Prompts for a filename and writes the current buffer to disk."),
