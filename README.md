@@ -19,6 +19,7 @@ A macOS menu bar app that surfaces keyboard shortcuts for whatever app you're cu
 - **Trigger shortcuts** — click a key combo to fire it in the target app (requires Accessibility permission)
 - **Global hotkey** — ⌥Space opens/closes QuickKey from anywhere
 - **Installed apps filter** — only shows tabs for apps actually on your Mac
+- **Persistent settings** — launch at login, font size, global hotkey, and trigger behavior all saved across restarts
 
 ## Supported Apps
 
