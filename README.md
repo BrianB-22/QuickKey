@@ -66,9 +66,17 @@ Build and run with ⌘R. QuickKey will appear as a keyboard icon in your menu ba
 
 1. Click the keyboard icon in the menu bar to open the popover
 2. The app tab for your current app is selected automatically
-3. Use the search bar to filter shortcuts
+3. Use the search bar to filter shortcuts, or toggle **All Apps** to search across every app at once
 4. Right-click any shortcut to trigger it, copy the key combo, or add it to Favorites
 5. Open Settings (gear icon) to configure launch at login, font size, and trigger behavior
+
+## Keyboard Controls
+
+| Shortcut | Action |
+|---|---|
+| ⌥ Space | Open / close QuickKey from any app |
+| ⌥ ⌘ F | Open QuickKey directly on the Favorites tab |
+| ← → | Navigate between app tabs (when search bar is not focused) |
 
 ## Settings
 
