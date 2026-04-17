@@ -1,5 +1,9 @@
 # QuickKey
 
+<p align="center">
+  <img src="QuickKeyIcon.png" width="128" alt="QuickKey icon">
+</p>
+
 A macOS menu bar app that surfaces keyboard shortcuts for whatever app you're currently using. Search, browse, favorite, and trigger shortcuts without leaving the keyboard.
 
 ## Features
