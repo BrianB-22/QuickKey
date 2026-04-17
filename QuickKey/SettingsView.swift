@@ -121,7 +121,21 @@ struct SettingsView: View {
                 }
             }
             .formStyle(.grouped)
+
+            Divider()
+
+            VStack(spacing: 4) {
+                Link("github.com/BrianB-22/QuickKey", destination: URL(string: "https://github.com/BrianB-22/QuickKey")!)
+                    .font(.caption)
+                Text("Version \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0")")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                Text("Vibed by Brian Bernacki")
+                    .font(.caption2)
+                    .foregroundStyle(.tertiary)
+            }
+            .padding(.vertical, 12)
         }
-        .frame(width: 380, height: 540)
+        .frame(width: 380, height: 580)
     }
 }
