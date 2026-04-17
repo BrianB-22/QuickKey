@@ -7,6 +7,7 @@ struct ContentView: View {
     @FocusState private var searchFocused: Bool
     @State private var scrollToTabId: String = ""
     @State private var showSettings = false
+    @State private var keyMonitor: Any? = nil
 
     private var allTabIds: [String] {
         ["Favorites"] + vm.allApps.map { $0.id }
@@ -25,7 +26,33 @@ struct ContentView: View {
         }
         .frame(width: 560, height: 660)
         .background(Color(NSColor.windowBackgroundColor))
-        .onAppear { searchFocused = true }
+        .onAppear {
+            searchFocused = true
+            keyMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
+                // Let text fields handle their own key events
+                if NSApp.keyWindow?.firstResponder is NSTextView { return event }
+                let ids = allTabIds
+                let current = ids.firstIndex(of: vm.selectedAppId) ?? 0
+                switch event.keyCode {
+                case 123: // left arrow
+                    let newId = ids[max(0, current - 1)]
+                    vm.selectedAppId = newId
+                    scrollToTabId = newId
+                    return nil
+                case 124: // right arrow
+                    let newId = ids[min(ids.count - 1, current + 1)]
+                    vm.selectedAppId = newId
+                    scrollToTabId = newId
+                    return nil
+                default:
+                    return event
+                }
+            }
+        }
+        .onDisappear {
+            if let monitor = keyMonitor { NSEvent.removeMonitor(monitor) }
+            keyMonitor = nil
+        }
         .sheet(isPresented: $showSettings) {
             SettingsView().environmentObject(settings)
         }
@@ -338,6 +365,14 @@ struct ShortcutRow: View {
                 NSPasteboard.general.setString(shortcut.keys.replacingOccurrences(of: "+", with: ""), forType: .string)
             } label: {
                 Label("Copy \(shortcut.keys.replacingOccurrences(of: "+", with: ""))", systemImage: "doc.on.doc")
+            }
+
+            Button {
+                let text = "\(shortcut.name) — \(shortcut.keys.replacingOccurrences(of: "+", with: ""))"
+                NSPasteboard.general.clearContents()
+                NSPasteboard.general.setString(text, forType: .string)
+            } label: {
+                Label("Copy as Text", systemImage: "text.alignleft")
             }
 
             Divider()
