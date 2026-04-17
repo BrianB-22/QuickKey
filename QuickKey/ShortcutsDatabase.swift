@@ -1293,7 +1293,7 @@ final class ShortcutsDatabase {
     // MARK: - IntelliJ
 
     static let intellij = AppShortcuts(
-        id: "IntelliJ",
+        id: "IntelliJ / WebStorm",
         appName: "IntelliJ / WebStorm",
         icon: "brain.head.profile",
         bundleIdentifiers: ["com.jetbrains.intellij", "com.jetbrains.intellij.ce", "com.jetbrains.WebStorm", "com.jetbrains.goland", "com.jetbrains.pycharm", "com.jetbrains.rubymine", "com.jetbrains.rider"],
@@ -1354,7 +1354,7 @@ final class ShortcutsDatabase {
     // MARK: - Vim
 
     static let vim = AppShortcuts(
-        id: "Vim",
+        id: "Vim / Neovim",
         appName: "Vim / Neovim",
         icon: "terminal",
         bundleIdentifiers: ["org.vim.MacVim", "com.neovim.nvim"],
@@ -1427,7 +1427,7 @@ final class ShortcutsDatabase {
     // MARK: - Nano
 
     static let nano = AppShortcuts(
-        id: "Nano",
+        id: "nano",
         appName: "nano",
         icon: "terminal.fill",
         bundleIdentifiers: [],
