@@ -6,6 +6,10 @@
 
 A macOS menu bar app that surfaces keyboard shortcuts for whatever app you're currently using. Search, browse, favorite, and trigger shortcuts without leaving the keyboard.
 
+<p align="center">
+  <img src="Screenshot.png" width="420" alt="QuickKey screenshot">
+</p>
+
 ## Features
 
 - **Menu bar utility** — lives in the menu bar with no Dock icon
