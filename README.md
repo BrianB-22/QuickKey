@@ -11,6 +11,16 @@ A macOS menu bar app that surfaces keyboard shortcuts for whatever app you're cu
   <td><img src="Screenshot2.png" width="340" alt="QuickKey favorites screenshot"></td>
 </tr></table>
 
+## Download
+
+<p align="center">
+  <a href="https://github.com/BrianB-22/QuickKey/raw/main/Builds/QuickKey%20Build%20041726.dmg">
+    ⬇️ Download QuickKey v1.0 (macOS)
+  </a>
+</p>
+
+> Not signed with an Apple Developer certificate — see the [install instructions](Builds/README.md) to bypass the Gatekeeper warning on first launch.
+
 ## Features
 
 - **Menu bar utility** — lives in the menu bar with no Dock icon
