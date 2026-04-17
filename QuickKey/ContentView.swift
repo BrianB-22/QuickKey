@@ -428,7 +428,9 @@ struct KeyComboView: View {
         )
         .zIndex(isHovered ? 100 : 0)
         .onHover { hovering in
-            if hovering { NSCursor.pointingHand.push() } else { NSCursor.pop() }
+            if onTrigger != nil {
+                if hovering { NSCursor.pointingHand.push() } else { NSCursor.pop() }
+            }
             withAnimation(.spring(response: 0.22, dampingFraction: 0.58)) {
                 isHovered = hovering
             }

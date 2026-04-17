@@ -129,10 +129,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private func openFavoritesFromHotkey() {
         vm.selectedAppId = "Favorites"
         if popover.isShown { return }
-        if let button = statusItem.button {
-            popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
-            popover.contentViewController?.view.window?.makeKey()
-        }
+        if let button = statusItem.button { showPopover(from: button) }
     }
 
     private func togglePopoverFromHotkey() {
@@ -143,10 +140,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                active.bundleIdentifier != Bundle.main.bundleIdentifier {
                 vm.updateActiveApp(active)
             }
-            if let button = statusItem.button {
-                popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
-                popover.contentViewController?.view.window?.makeKey()
-            }
+            if let button = statusItem.button { showPopover(from: button) }
         }
     }
 
@@ -165,9 +159,20 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                active.bundleIdentifier != Bundle.main.bundleIdentifier {
                 vm.updateActiveApp(active)
             }
-            popover.show(relativeTo: sender.bounds, of: sender, preferredEdge: .minY)
-            popover.contentViewController?.view.window?.makeKey()
+            showPopover(from: sender)
         }
+    }
+
+    private func showPopover(from button: NSStatusBarButton) {
+        // If the popover is already on a different screen than the button, close it first
+        // so it reopens anchored to the correct display.
+        if let popoverScreen = popover.contentViewController?.view.window?.screen,
+           let buttonScreen = button.window?.screen,
+           popoverScreen != buttonScreen {
+            popover.performClose(nil)
+        }
+        popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+        popover.contentViewController?.view.window?.makeKey()
     }
 
     private func showContextMenu() {
