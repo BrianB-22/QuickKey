@@ -96,3 +96,7 @@ The app is built with SwiftUI + AppKit. Key files:
 ## License
 
 MIT
+
+## Disclaimer
+
+QuickKey is provided as-is, without warranties of any kind. The keyboard shortcuts listed are believed to be accurate at the time of writing, but app updates may change them at any time. No guarantee is made regarding the completeness or correctness of any shortcut data. Use at your own discretion.
