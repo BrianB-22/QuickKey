@@ -14,12 +14,17 @@ Click the `.dmg` filename above, then click the **Download** button on the right
 
 ## First Launch (Gatekeeper Warning)
 
-Because QuickKey is not signed with an Apple Developer certificate, macOS will block it on the first open. To get past this:
+Because QuickKey is not signed with an Apple Developer certificate, macOS will block it on the first open. You only need to do this once — after that it opens normally.
+
+### macOS Ventura and later (recommended)
+
+1. Double-click QuickKey to trigger the block
+2. Open **System Settings → Privacy & Security**
+3. Scroll down to the **"QuickKey was blocked"** message
+4. Click **Open Anyway** and enter your password if prompted
+
+### Older macOS versions
 
 1. In **Finder**, navigate to **Applications**
 2. **Right-click** QuickKey → **Open**
 3. Click **Open** in the dialog that appears
-
-You only need to do this once. After that, QuickKey opens normally.
-
-Alternatively: **System Settings → Privacy & Security** → scroll down to the blocked app message → click **Open Anyway**.
