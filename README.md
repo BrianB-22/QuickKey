@@ -33,6 +33,12 @@ System, Finder, Safari, Chrome, Arc, VS Code, Cursor, Terminal, Xcode, Slack, Fi
 
 ## Installation
 
+### Option 1 — Pre-compiled (easiest)
+
+Download the latest `.dmg` from the [Builds folder](Builds/) — no Xcode required. See the [install instructions](Builds/README.md) for how to bypass the macOS Gatekeeper warning on first launch.
+
+### Option 2 — Build from source
+
 Clone the repo and open the Xcode project:
 
 ```bash
