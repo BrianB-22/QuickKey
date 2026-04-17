@@ -45,6 +45,12 @@ struct ContentView: View {
                     vm.selectedAppId = newId
                     scrollToTabId = newId
                     return nil
+                case 125: // down arrow
+                    Self.scrollList(by: 60)
+                    return nil
+                case 126: // up arrow
+                    Self.scrollList(by: -60)
+                    return nil
                 default:
                     return event
                 }
@@ -299,6 +305,25 @@ struct ContentView: View {
             ? vm.allAppsSearchResults
             : vm.filteredCategories
         return categories.reduce(0) { $0 + $1.shortcuts.count }
+    }
+
+    static func scrollList(by delta: CGFloat) {
+        guard let contentView = NSApp.keyWindow?.contentView else { return }
+        guard let scrollView = Self.findScrollView(in: contentView) else { return }
+        let origin = scrollView.documentVisibleRect.origin
+        let maxY = scrollView.documentView?.bounds.height ?? 0
+        let visibleHeight = scrollView.documentVisibleRect.height
+        let newY = max(0, min(origin.y + delta, maxY - visibleHeight))
+        scrollView.contentView.scroll(to: NSPoint(x: 0, y: newY))
+        scrollView.reflectScrolledClipView(scrollView.contentView)
+    }
+
+    private static func findScrollView(in view: NSView) -> NSScrollView? {
+        if let sv = view as? NSScrollView { return sv }
+        for sub in view.subviews {
+            if let found = findScrollView(in: sub) { return found }
+        }
+        return nil
     }
 }
 
