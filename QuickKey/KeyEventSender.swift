@@ -15,8 +15,25 @@ enum KeyEventSender {
         AXIsProcessTrustedWithOptions([key: true] as CFDictionary)
     }
 
-    /// Parse a stored key string like "⌘+⇧+Z" and post the corresponding CGEvents.
+    /// Parse a stored key string and post CGEvents. Supports multi-step sequences via "+then+".
     static func send(keys: String) {
+        let steps = keys.components(separatedBy: "+then+")
+        sendStep(steps: steps, index: 0)
+    }
+
+    // MARK: - Private
+
+    private static func sendStep(steps: [String], index: Int) {
+        guard index < steps.count else { return }
+        sendSingle(keys: steps[index])
+        if index + 1 < steps.count {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                sendStep(steps: steps, index: index + 1)
+            }
+        }
+    }
+
+    private static func sendSingle(keys: String) {
         let tokens = keys.components(separatedBy: "+").filter { !$0.isEmpty }
 
         var flags: CGEventFlags = []

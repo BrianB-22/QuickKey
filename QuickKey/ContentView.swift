@@ -81,7 +81,23 @@ struct ContentView: View {
                         vm.triggerShortcut?(item.shortcut.keys)
                     }
                     return nil
+                case 53: // escape — clear search or close popover
+                    if !vm.searchText.isEmpty {
+                        vm.searchText = ""
+                        highlightedId = nil
+                    } else {
+                        vm.closePopover?()
+                    }
+                    return nil
                 default:
+                    // Printable key with no ⌘/⌥/⌃ — auto-focus search bar
+                    if !inTextField,
+                       let chars = event.characters,
+                       let scalar = chars.unicodeScalars.first,
+                       scalar.value >= 32, scalar.value != 127,
+                       event.modifierFlags.intersection([.command, .option, .control]).isEmpty {
+                        searchFocused = true
+                    }
                     return event
                 }
             }

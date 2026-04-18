@@ -23,6 +23,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         vm.triggerShortcut = { [weak self] keys in
             self?.performTrigger(keys: keys)
         }
+        vm.closePopover = { [weak self] in
+            self?.popover.performClose(nil)
+        }
 
         // ⌥Space — open/close popover
         hotkeyManager.onActivate = { [weak self] in self?.togglePopoverFromHotkey() }

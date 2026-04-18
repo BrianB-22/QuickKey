@@ -88,6 +88,9 @@ final class ShortcutsViewModel: ObservableObject {
     /// Set by AppDelegate — closes the popover and fires the key event in the last active app.
     var triggerShortcut: ((String) -> Void)?
 
+    /// Set by AppDelegate — closes the popover.
+    var closePopover: (() -> Void)?
+
     // Tracked active app — updated by notification, never stale
     @Published var activeAppName: String? = nil
     @Published var activeAppHasData: Bool = false
