@@ -72,6 +72,7 @@ final class ShortcutsDatabase {
                 Shortcut(name: "Open preferences",       keys: "⌘+,",         description: "Opens the active app's Settings / Preferences window."),
                 Shortcut(name: "Force Quit",             keys: "⌘+⌥+⎋",       description: "Opens the Force Quit dialog to terminate an unresponsive application immediately."),
                 Shortcut(name: "Switch app",             keys: "⌘+Tab",       description: "Cycles forward through open apps. Hold ⌘ and press Tab repeatedly; release to switch."),
+                Shortcut(name: "Switch app backward",    keys: "⌘+⇧+Tab",     description: "Cycles backward through open apps in the app switcher."),
                 Shortcut(name: "Cycle app windows",      keys: "⌘+`",         description: "Cycles through multiple windows of the same app. Press repeatedly to walk through them."),
             ]),
             ShortcutCategory(name: "Text Editing", shortcuts: [
@@ -92,9 +93,13 @@ final class ShortcutsDatabase {
                 Shortcut(name: "Jump to end",            keys: "⌘+↓",         description: "Moves the cursor to the very end of the document or text field."),
                 Shortcut(name: "Jump to line start",     keys: "⌘+←",         description: "Moves the cursor to the first character of the current line."),
                 Shortcut(name: "Jump to line end",       keys: "⌘+→",         description: "Moves the cursor to the last character of the current line."),
-                Shortcut(name: "Delete word back",       keys: "⌥+⌫",         description: "Deletes the entire word immediately to the left of the cursor."),
-                Shortcut(name: "Delete to start of line",keys: "⌘+⌫",         description: "Deletes all text from the cursor back to the beginning of the current line."),
-                Shortcut(name: "Select word",            keys: "⌥+⇧+→",       description: "Extends the selection one word to the right. Combine with ← to go back."),
+                Shortcut(name: "Move word left",          keys: "⌥+←",         description: "Moves the cursor one word to the left. Works in any macOS text field."),
+                Shortcut(name: "Move word right",         keys: "⌥+→",         description: "Moves the cursor one word to the right. Works in any macOS text field."),
+                Shortcut(name: "Delete word back",        keys: "⌥+⌫",         description: "Deletes the entire word immediately to the left of the cursor."),
+                Shortcut(name: "Delete to start of line", keys: "⌘+⌫",         description: "Deletes all text from the cursor back to the beginning of the current line."),
+                Shortcut(name: "Select word left",        keys: "⌥+⇧+←",       description: "Extends the selection one word to the left."),
+                Shortcut(name: "Select word right",       keys: "⌥+⇧+→",       description: "Extends the selection one word to the right."),
+                Shortcut(name: "Look up definition",      keys: "⌃+⌘+D",       description: "Shows a dictionary definition popup for the word under the cursor or selected text. Works system-wide."),
             ]),
             ShortcutCategory(name: "Screenshots", shortcuts: [
                 Shortcut(name: "Full screenshot",        keys: "⌘+⇧+3",       description: "Captures the entire screen and saves it as a PNG on the Desktop."),
@@ -113,6 +118,7 @@ final class ShortcutsDatabase {
                 Shortcut(name: "Next Space",             keys: "⌃+→",         description: "Switches to the Space (virtual desktop) to the right."),
                 Shortcut(name: "Previous Space",         keys: "⌃+←",         description: "Switches to the Space (virtual desktop) to the left."),
                 Shortcut(name: "Lock screen",            keys: "⌘+⌃+Q",       description: "Immediately locks the screen and requires your password to log back in."),
+                Shortcut(name: "Show/hide Dock",         keys: "⌘+⌥+D",       description: "Hides the Dock to reclaim screen space, or shows it again. Also toggles auto-hide."),
                 Shortcut(name: "Emoji & Symbols",        keys: "⌘+⌃+Space",   description: "Opens the Character Viewer floating palette to browse and insert emoji or special symbols."),
             ]),
         ]
@@ -139,9 +145,11 @@ final class ShortcutsDatabase {
                 Shortcut(name: "Open parent folder",     keys: "⌘+↑",         description: "Navigates up one level to the enclosing folder."),
                 Shortcut(name: "Open selected item",     keys: "⌘+↓",         description: "Opens the selected file or folder, same as double-clicking."),
                 Shortcut(name: "iCloud Drive",           keys: "⌘+⇧+I",       description: "Takes you directly to your iCloud Drive folder."),
+                Shortcut(name: "Recents",                keys: "⌘+⇧+F",       description: "Opens the Recents folder showing the files you've accessed most recently."),
             ]),
             ShortcutCategory(name: "File Operations", shortcuts: [
                 Shortcut(name: "New Finder window",      keys: "⌘+N",         description: "Opens a new Finder window at the default location (usually your Home folder)."),
+                Shortcut(name: "Find / Search",          keys: "⌘+F",         description: "Opens the search bar in the current Finder window to filter files by name or content."),
                 Shortcut(name: "New folder",             keys: "⌘+⇧+N",       description: "Creates a new untitled folder in the current directory, ready to be named."),
                 Shortcut(name: "New folder from selection", keys: "⌘+⌃+N",    description: "Creates a new folder and automatically moves all selected files into it."),
                 Shortcut(name: "Open",                   keys: "⌘+O",         description: "Opens the selected file with its default application, same as double-clicking."),
@@ -155,6 +163,7 @@ final class ShortcutsDatabase {
                 Shortcut(name: "Move (after copy)",      keys: "⌘+⌥+V",       description: "After copying a file (⌘C), this pastes it at the destination and removes the original — effectively a move."),
                 Shortcut(name: "Rename",                 keys: "Return",       description: "Puts the selected item's filename into edit mode so you can type a new name."),
                 Shortcut(name: "Quick Look",             keys: "Space",        description: "Opens a full-size preview of the selected file without launching an app. Press Space again to close."),
+                Shortcut(name: "Show original",          keys: "⌘+R",         description: "Reveals the original file that a selected alias or symlink points to."),
             ]),
             ShortcutCategory(name: "View", shortcuts: [
                 Shortcut(name: "Icon view",              keys: "⌘+1",         description: "Switches the current Finder window to icon (grid) view."),
