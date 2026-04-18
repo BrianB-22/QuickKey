@@ -150,6 +150,7 @@ final class ShortcutsDatabase {
                 Shortcut(name: "Make Alias",             keys: "⌘+L",         description: "Creates a shortcut (alias) that points to the original file; moving the alias won't break the link."),
                 Shortcut(name: "Move to Trash",          keys: "⌘+⌫",         description: "Sends selected items to the Trash. They're not deleted until you empty the Trash."),
                 Shortcut(name: "Empty Trash",            keys: "⌘+⇧+⌫",       description: "Permanently deletes all items in the Trash. This cannot be undone."),
+                Shortcut(name: "Eject disk",             keys: "⌘+E",         description: "Ejects the selected disk, volume, or mounted image."),
                 Shortcut(name: "Copy path to clipboard", keys: "⌘+⌥+C",       description: "Copies the full file path of the selected item to the clipboard as plain text."),
                 Shortcut(name: "Move (after copy)",      keys: "⌘+⌥+V",       description: "After copying a file (⌘C), this pastes it at the destination and removes the original — effectively a move."),
                 Shortcut(name: "Rename",                 keys: "Return",       description: "Puts the selected item's filename into edit mode so you can type a new name."),
@@ -191,6 +192,7 @@ final class ShortcutsDatabase {
             ]),
             ShortcutCategory(name: "Tabs", shortcuts: [
                 Shortcut(name: "New tab",                keys: "⌘+T",         description: "Opens a new blank tab and focuses the address bar so you can start typing immediately."),
+                Shortcut(name: "New private window",     keys: "⌘+⇧+N",       description: "Opens a new Private Browsing window that doesn't save history, cookies, or autofill data."),
                 Shortcut(name: "Close tab",              keys: "⌘+W",         description: "Closes the current tab. If it's the last tab, it closes the window."),
                 Shortcut(name: "Reopen closed tab",      keys: "⌘+⇧+T",       description: "Reopens the most recently closed tab, restoring its page and history."),
                 Shortcut(name: "Next tab",               keys: "⌘+⇧+]",       description: "Moves focus to the tab immediately to the right."),
@@ -258,6 +260,7 @@ final class ShortcutsDatabase {
                 Shortcut(name: "View page source",       keys: "⌘+U",         description: "Opens the raw HTML source code of the current page in a new tab."),
             ]),
             ShortcutCategory(name: "Browser", shortcuts: [
+                Shortcut(name: "Search tabs",            keys: "⌘+⇧+A",       description: "Opens the tab search popup to find any open tab by typing part of its title or URL."),
                 Shortcut(name: "History",                keys: "⌘+Y",         description: "Opens the full browsing history page."),
                 Shortcut(name: "Downloads",              keys: "⌘+⇧+J",       description: "Opens the Downloads page listing all downloaded files."),
                 Shortcut(name: "Bookmarks bar",          keys: "⌘+⇧+B",       description: "Toggles the bookmarks bar visible beneath the address bar."),
@@ -309,6 +312,8 @@ final class ShortcutsDatabase {
                 Shortcut(name: "Rename symbol",          keys: "F2",           description: "Renames the symbol under the cursor across all files in the workspace."),
             ]),
             ShortcutCategory(name: "Navigation", shortcuts: [
+                Shortcut(name: "Go to next problem",      keys: "F8",           description: "Jumps to the next error or warning in the file as shown in the Problems panel."),
+                Shortcut(name: "Go to previous problem", keys: "⇧+F8",         description: "Jumps to the previous error or warning in the file."),
                 Shortcut(name: "Go to line",             keys: "⌃+G",         description: "Opens a prompt where you type a line number to jump directly to it."),
                 Shortcut(name: "Go to symbol in file",   keys: "⌘+⇧+O",       description: "Opens a fuzzy-search list of all symbols (functions, classes, etc.) in the current file."),
                 Shortcut(name: "Go to definition",       keys: "F12",          description: "Jumps to where the symbol under the cursor is defined, even across files."),
@@ -368,6 +373,9 @@ final class ShortcutsDatabase {
                 Shortcut(name: "Clear screen",           keys: "⌘+K",         description: "Clears the entire terminal scrollback buffer, giving you a clean blank screen."),
                 Shortcut(name: "Find",                   keys: "⌘+F",         description: "Opens a find bar to search the terminal's scrollback buffer."),
                 Shortcut(name: "Zoom",                   keys: "⌘+⌥+Return",  description: "Toggles the terminal window between its normal size and full screen."),
+                Shortcut(name: "Increase text size",     keys: "⌘+=",         description: "Increases the font size in the current terminal window."),
+                Shortcut(name: "Decrease text size",     keys: "⌘+-",         description: "Decreases the font size in the current terminal window."),
+                Shortcut(name: "Reset text size",        keys: "⌘+0",         description: "Resets the font size to the default defined in Terminal preferences."),
             ]),
             ShortcutCategory(name: "Shell Control", shortcuts: [
                 Shortcut(name: "Interrupt (SIGINT)",     keys: "⌃+C",         description: "Sends SIGINT to the foreground process, stopping it immediately. The most common way to cancel a running command."),
@@ -465,10 +473,12 @@ final class ShortcutsDatabase {
                 Shortcut(name: "Next channel/DM",        keys: "⌥+↓",         description: "Navigates to the next channel or DM in the sidebar list."),
                 Shortcut(name: "Back",                   keys: "⌘+[",         description: "Goes back to the previously viewed channel or conversation."),
                 Shortcut(name: "Forward",                keys: "⌘+]",         description: "Goes forward after navigating back."),
+                Shortcut(name: "Keyboard shortcuts",      keys: "⌘+/",         description: "Shows a full list of Slack keyboard shortcuts in a popup overlay."),
                 Shortcut(name: "Preferences",            keys: "⌘+,",         description: "Opens Slack Preferences."),
             ]),
             ShortcutCategory(name: "Messaging", shortcuts: [
                 Shortcut(name: "New message",            keys: "⌘+N",         description: "Opens the New Message composer to start a DM or message in any channel."),
+                Shortcut(name: "Set status",             keys: "⌘+⇧+Y",       description: "Opens the Set Status dialog to update your availability emoji and message."),
                 Shortcut(name: "Edit last message",      keys: "↑",           description: "When the compose box is empty, pressing Up edits your most recent sent message."),
                 Shortcut(name: "Add reaction (last msg)",keys: "⌘+⇧+\\",      description: "Opens the emoji picker to add a reaction to the most recent message in the channel."),
                 Shortcut(name: "Mark as unread",         keys: "⌘+⌥+M",       description: "Marks the current channel as unread from the selected message so you remember to come back."),
@@ -599,6 +609,8 @@ final class ShortcutsDatabase {
                 Shortcut(name: "Ungroup",                keys: "⌘+⇧+G",       description: "Ungroups the selected Group, releasing its children."),
                 Shortcut(name: "Create component",       keys: "⌘+⌥+K",       description: "Turns the selected layers into a reusable Component."),
                 Shortcut(name: "Detach instance",        keys: "⌘+⌥+B",       description: "Detaches a component instance so it can be edited independently."),
+                Shortcut(name: "Copy properties",        keys: "⌘+⌥+C",       description: "Copies the style properties (fill, stroke, effects, etc.) of the selected layer."),
+                Shortcut(name: "Paste properties",       keys: "⌘+⌥+V",       description: "Pastes the copied style properties onto the selected layer."),
             ]),
             ShortcutCategory(name: "Arrange", shortcuts: [
                 Shortcut(name: "Send to back",           keys: "⌘+[",         description: "Sends the selected layer to the very back of the stack."),
@@ -820,6 +832,7 @@ final class ShortcutsDatabase {
                 Shortcut(name: "Fill right",             keys: "⌘+R",         description: "Copies the content of the leftmost cell in a selection across to the right."),
                 Shortcut(name: "Insert current date",    keys: "⌘+;",         description: "Inserts today's date as a static value in the active cell."),
                 Shortcut(name: "Toggle show formulas",   keys: "⌃+`",         description: "Switches the sheet view between showing cell values and showing raw formulas."),
+                Shortcut(name: "Insert table",           keys: "⌃+T",         description: "Converts the selected data range into a formatted Excel Table with filtering and sorting handles."),
                 Shortcut(name: "Toggle absolute ref",    keys: "⌘+T",         description: "While editing a formula, cycles the selected cell reference between relative (A1), absolute ($A$1), and mixed ($A1, A$1)."),
                 Shortcut(name: "Undo",                   keys: "⌘+Z",         description: "Undoes the last action."),
                 Shortcut(name: "Redo",                   keys: "⌘+Y",         description: "Re-applies the last undone action."),
@@ -1371,6 +1384,7 @@ final class ShortcutsDatabase {
             ]),
             ShortcutCategory(name: "Editing", shortcuts: [
                 Shortcut(name: "Reformat Code",          keys: "⌘+⌥+L",       description: "Applies the project's code style formatting rules to the current file or selection."),
+                Shortcut(name: "Optimize Imports",       keys: "⌃+⌥+O",       description: "Removes unused imports and sorts the remaining ones according to the project's style settings."),
                 Shortcut(name: "Duplicate Line",         keys: "⌘+D",         description: "Duplicates the current line or selection and inserts the copy below."),
                 Shortcut(name: "Delete Line",            keys: "⌘+Y",         description: "Deletes the entire current line without leaving an empty line."),
                 Shortcut(name: "Comment Line",           keys: "⌘+/",         description: "Toggles a line comment on the current line or selected lines."),
