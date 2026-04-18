@@ -49,7 +49,9 @@ System, Finder, Safari, Chrome, Firefox, Brave, Arc, VS Code, Cursor, Terminal, 
 
 ### Option 1 — Pre-compiled (easiest)
 
-Download the latest `.dmg` from the [Builds folder](Builds/) — no Xcode required. See the [install instructions](Builds/README.md) for how to bypass the macOS Gatekeeper warning on first launch.
+Download the latest `.dmg` from the [Releases page](https://github.com/BrianB-22/QuickKey/releases/latest) — no Xcode required.
+
+Because QuickKey is not signed with an Apple Developer certificate, macOS will show a Gatekeeper warning on first launch. See the [install instructions](Builds/README.md) for the one-time workaround to open it.
 
 ### Option 2 — Build from source
 
