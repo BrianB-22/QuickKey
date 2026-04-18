@@ -16,12 +16,13 @@ A macOS menu bar app that surfaces keyboard shortcuts for whatever app you're cu
 ## Download
 
 <p align="center">
-  <a href="https://github.com/BrianB-22/QuickKey/releases/latest/download/QuickKey%20v1_2.dmg">
-    ⬇️ Download QuickKey v1.2 (Latest)
+  <a href="https://github.com/BrianB-22/QuickKey/releases/latest">
+    ⬇️ Download QuickKey v1.2 (Latest Release)
   </a>
 </p>
 
-> Not signed with an Apple Developer certificate — see the [install instructions](Builds/README.md) to bypass the Gatekeeper warning on first launch.
+> **macOS security notice:** QuickKey is not signed with an Apple Developer certificate, so macOS will block it on first launch with a Gatekeeper warning. This is normal for indie apps distributed outside the App Store.
+> See the [install instructions](Builds/README.md) for the step-by-step workaround — it only takes a minute and you only need to do it once.
 
 ## Features
 
