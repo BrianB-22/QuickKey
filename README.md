@@ -105,6 +105,10 @@ The app is built with SwiftUI + AppKit. Key files:
 | `HotkeyManager.swift` | Global hotkey via Carbon `RegisterEventHotKey` |
 | `KeyEventSender.swift` | CGEvent keyboard synthesis for shortcut triggering |
 
+## Support
+
+If you find QuickKey useful, a ⭐ on GitHub goes a long way! Have a suggestion, found a bug, or just want to share a shortcut tip? Drop a message in the [Discussions](https://github.com/BrianB-22/QuickKey/discussions) tab — always happy to hear from people using it.
+
 ## License
 
 MIT
