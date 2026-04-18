@@ -42,8 +42,8 @@
 
 ## App Coverage
 Apps to consider adding:
-- [ ] Microsoft Word
-- [ ] Microsoft PowerPoint
+- [x] Microsoft Word
+- [x] Microsoft PowerPoint
 - [ ] 1Password
 - [ ] Tower / SourceTree (Git clients)
 - [ ] Sketch

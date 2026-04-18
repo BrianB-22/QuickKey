@@ -43,6 +43,8 @@ final class ShortcutsDatabase {
             ShortcutsDatabase.superhuman,
             ShortcutsDatabase.linear,
             ShortcutsDatabase.telegram,
+            ShortcutsDatabase.microsoftWord,
+            ShortcutsDatabase.microsoftPowerPoint,
         ]
     }
 
@@ -1793,6 +1795,138 @@ final class ShortcutsDatabase {
                 Shortcut(name: "Reset zoom",             keys: "⌘+0",         description: "Resets the editor zoom to the default size."),
                 Shortcut(name: "Split right",            keys: "⌘+⇧+→",       description: "Opens a new pane to the right of the current one."),
                 Shortcut(name: "Focus on editor",        keys: "⎋",           description: "Moves focus into the editor, dismissing any open panels or dialogs."),
+            ]),
+        ]
+    )
+
+    // MARK: - Microsoft Word
+
+    static let microsoftWord = AppShortcuts(
+        id: "Microsoft Word",
+        appName: "Microsoft Word",
+        icon: "doc.fill",
+        bundleIdentifiers: ["com.microsoft.Word"],
+        categories: [
+            ShortcutCategory(name: "File", shortcuts: [
+                Shortcut(name: "New document",           keys: "⌘+N",         description: "Creates a new blank Word document."),
+                Shortcut(name: "Open",                   keys: "⌘+O",         description: "Opens the file picker to open an existing document."),
+                Shortcut(name: "Save",                   keys: "⌘+S",         description: "Saves the current document. First save will prompt for a filename."),
+                Shortcut(name: "Save As",                keys: "⌘+⇧+S",       description: "Saves a copy of the document with a new name or location."),
+                Shortcut(name: "Print",                  keys: "⌘+P",         description: "Opens the Print dialog for the current document."),
+                Shortcut(name: "Close",                  keys: "⌘+W",         description: "Closes the current document window."),
+            ]),
+            ShortcutCategory(name: "Editing", shortcuts: [
+                Shortcut(name: "Undo",                   keys: "⌘+Z",         description: "Reverses the last action."),
+                Shortcut(name: "Redo",                   keys: "⌘+Y",         description: "Re-applies the last undone action."),
+                Shortcut(name: "Find",                   keys: "⌘+F",         description: "Opens the Find toolbar to search for text in the document."),
+                Shortcut(name: "Find & Replace",         keys: "⌘+H",         description: "Opens the Find & Replace dialog."),
+                Shortcut(name: "Select all",             keys: "⌘+A",         description: "Selects all content in the document."),
+                Shortcut(name: "Copy",                   keys: "⌘+C",         description: "Copies the selected content."),
+                Shortcut(name: "Cut",                    keys: "⌘+X",         description: "Cuts the selected content to the clipboard."),
+                Shortcut(name: "Paste",                  keys: "⌘+V",         description: "Pastes clipboard contents at the cursor."),
+                Shortcut(name: "Paste Special",          keys: "⌘+⌥+⇧+V",     description: "Opens Paste Special to control formatting when pasting."),
+                Shortcut(name: "Delete word",            keys: "⌥+⌫",         description: "Deletes the word to the left of the cursor."),
+                Shortcut(name: "Insert line break",      keys: "⇧+Return",    description: "Inserts a soft line break (new line without a new paragraph)."),
+                Shortcut(name: "Non-breaking space",     keys: "⌘+⇧+Space",   description: "Inserts a non-breaking space that prevents a line break between two words."),
+            ]),
+            ShortcutCategory(name: "Formatting", shortcuts: [
+                Shortcut(name: "Bold",                   keys: "⌘+B",         description: "Toggles bold on the selected text."),
+                Shortcut(name: "Italic",                 keys: "⌘+I",         description: "Toggles italic on the selected text."),
+                Shortcut(name: "Underline",              keys: "⌘+U",         description: "Toggles underline on the selected text."),
+                Shortcut(name: "Strikethrough",          keys: "⌘+⇧+X",       description: "Applies strikethrough formatting to the selected text."),
+                Shortcut(name: "Increase font size",     keys: "⌘+⇧+>",       description: "Increases the font size of the selected text by one step."),
+                Shortcut(name: "Decrease font size",     keys: "⌘+⇧+<",       description: "Decreases the font size of the selected text by one step."),
+                Shortcut(name: "Align left",             keys: "⌘+⌥+L",       description: "Left-aligns the selected paragraph."),
+                Shortcut(name: "Align center",           keys: "⌘+⌥+C",       description: "Centers the selected paragraph."),
+                Shortcut(name: "Align right",            keys: "⌘+⌥+R",       description: "Right-aligns the selected paragraph."),
+                Shortcut(name: "Justify",                keys: "⌘+⌥+J",       description: "Justifies the selected paragraph to both margins."),
+                Shortcut(name: "Clear formatting",       keys: "⌘+Space",     description: "Removes all manual character formatting from the selected text."),
+                Shortcut(name: "Heading 1",              keys: "⌘+⌥+1",       description: "Applies the Heading 1 style to the selected paragraph."),
+                Shortcut(name: "Heading 2",              keys: "⌘+⌥+2",       description: "Applies the Heading 2 style to the selected paragraph."),
+                Shortcut(name: "Heading 3",              keys: "⌘+⌥+3",       description: "Applies the Heading 3 style to the selected paragraph."),
+            ]),
+            ShortcutCategory(name: "Navigation", shortcuts: [
+                Shortcut(name: "Beginning of document",  keys: "⌘+Home",      description: "Jumps to the very start of the document."),
+                Shortcut(name: "End of document",        keys: "⌘+End",       description: "Jumps to the very end of the document."),
+                Shortcut(name: "Go to page",             keys: "⌘+G",         description: "Opens the Go To dialog to jump to a specific page, section, or bookmark."),
+                Shortcut(name: "Move word left",         keys: "⌥+←",         description: "Moves the cursor one word to the left."),
+                Shortcut(name: "Move word right",        keys: "⌥+→",         description: "Moves the cursor one word to the right."),
+                Shortcut(name: "Select word left",       keys: "⌥+⇧+←",       description: "Extends the selection one word to the left."),
+                Shortcut(name: "Select word right",      keys: "⌥+⇧+→",       description: "Extends the selection one word to the right."),
+            ]),
+            ShortcutCategory(name: "Review", shortcuts: [
+                Shortcut(name: "Spell check",            keys: "⌥+F7",        description: "Runs the spelling and grammar checker on the document."),
+                Shortcut(name: "Word count",             keys: "⌘+⇧+G",       description: "Opens the Word Count dialog showing words, characters, and page count."),
+                Shortcut(name: "Track changes",          keys: "⌘+⇧+E",       description: "Toggles Track Changes on or off, marking all edits for review."),
+                Shortcut(name: "Accept change",          keys: "⌘+⌥+⇧+A",     description: "Accepts the tracked change at the cursor position."),
+                Shortcut(name: "New comment",            keys: "⌘+⌥+A",       description: "Inserts a comment at the current selection."),
+            ]),
+        ]
+    )
+
+    // MARK: - Microsoft PowerPoint
+
+    static let microsoftPowerPoint = AppShortcuts(
+        id: "Microsoft PowerPoint",
+        appName: "Microsoft PowerPoint",
+        icon: "rectangle.on.rectangle.fill",
+        bundleIdentifiers: ["com.microsoft.Powerpoint"],
+        categories: [
+            ShortcutCategory(name: "File", shortcuts: [
+                Shortcut(name: "New presentation",       keys: "⌘+N",         description: "Creates a new blank PowerPoint presentation."),
+                Shortcut(name: "Open",                   keys: "⌘+O",         description: "Opens an existing presentation."),
+                Shortcut(name: "Save",                   keys: "⌘+S",         description: "Saves the current presentation."),
+                Shortcut(name: "Save As",                keys: "⌘+⇧+S",       description: "Saves a copy with a new name or in a different format."),
+                Shortcut(name: "Print",                  keys: "⌘+P",         description: "Opens the Print dialog."),
+                Shortcut(name: "Close",                  keys: "⌘+W",         description: "Closes the current presentation window."),
+            ]),
+            ShortcutCategory(name: "Slides", shortcuts: [
+                Shortcut(name: "New slide",              keys: "⌘+⇧+N",       description: "Inserts a new slide after the current one."),
+                Shortcut(name: "Duplicate slide",        keys: "⌘+D",         description: "Creates a duplicate of the selected slide."),
+                Shortcut(name: "Delete slide",           keys: "⌘+⌫",         description: "Deletes the selected slide(s)."),
+                Shortcut(name: "Move slide up",          keys: "⌘+⇧+↑",       description: "Moves the selected slide up one position in the deck."),
+                Shortcut(name: "Move slide down",        keys: "⌘+⇧+↓",       description: "Moves the selected slide down one position in the deck."),
+                Shortcut(name: "Select all slides",      keys: "⌘+A",         description: "Selects all slides in the slide panel."),
+            ]),
+            ShortcutCategory(name: "Editing", shortcuts: [
+                Shortcut(name: "Undo",                   keys: "⌘+Z",         description: "Reverses the last action."),
+                Shortcut(name: "Redo",                   keys: "⌘+Y",         description: "Re-applies the last undone action."),
+                Shortcut(name: "Copy",                   keys: "⌘+C",         description: "Copies the selected object or text."),
+                Shortcut(name: "Cut",                    keys: "⌘+X",         description: "Cuts the selected content to the clipboard."),
+                Shortcut(name: "Paste",                  keys: "⌘+V",         description: "Pastes clipboard contents."),
+                Shortcut(name: "Select all",             keys: "⌘+A",         description: "Selects all objects on the current slide."),
+                Shortcut(name: "Find & Replace",         keys: "⌘+H",         description: "Opens Find & Replace to substitute text across the presentation."),
+                Shortcut(name: "Group objects",          keys: "⌘+⌥+G",       description: "Groups the selected objects so they can be moved and resized together."),
+                Shortcut(name: "Ungroup objects",        keys: "⌘+⌥+⇧+G",     description: "Ungroups a grouped selection back into individual objects."),
+            ]),
+            ShortcutCategory(name: "Formatting", shortcuts: [
+                Shortcut(name: "Bold",                   keys: "⌘+B",         description: "Toggles bold on the selected text."),
+                Shortcut(name: "Italic",                 keys: "⌘+I",         description: "Toggles italic on the selected text."),
+                Shortcut(name: "Underline",              keys: "⌘+U",         description: "Toggles underline on the selected text."),
+                Shortcut(name: "Increase font size",     keys: "⌘+⇧+>",       description: "Increases the font size of selected text."),
+                Shortcut(name: "Decrease font size",     keys: "⌘+⇧+<",       description: "Decreases the font size of selected text."),
+                Shortcut(name: "Align left",             keys: "⌘+⌥+L",       description: "Left-aligns text in the selected text box."),
+                Shortcut(name: "Align center",           keys: "⌘+⌥+C",       description: "Centers text in the selected text box."),
+                Shortcut(name: "Align right",            keys: "⌘+⌥+R",       description: "Right-aligns text in the selected text box."),
+                Shortcut(name: "Bring forward",          keys: "⌥+⌘+F",       description: "Moves the selected object one layer forward in the stack."),
+                Shortcut(name: "Send backward",          keys: "⌥+⌘+B",       description: "Moves the selected object one layer backward in the stack."),
+            ]),
+            ShortcutCategory(name: "Presentation", shortcuts: [
+                Shortcut(name: "Start slideshow",        keys: "⌘+⇧+Return",  description: "Starts the slideshow from the beginning."),
+                Shortcut(name: "Start from current slide", keys: "⌘+Return",  description: "Starts the slideshow from the currently selected slide."),
+                Shortcut(name: "End slideshow",          keys: "⎋",           description: "Exits the slideshow and returns to Normal view."),
+                Shortcut(name: "Next slide",             keys: "→",           description: "Advances to the next slide during a presentation."),
+                Shortcut(name: "Previous slide",         keys: "←",           description: "Goes back to the previous slide during a presentation."),
+                Shortcut(name: "Black screen",           keys: "B",           description: "Toggles a black screen during a presentation to pause and refocus the audience."),
+                Shortcut(name: "White screen",           keys: "W",           description: "Toggles a white screen during a presentation."),
+                Shortcut(name: "Presenter view",         keys: "⌥+Return",    description: "Switches to Presenter View showing notes, next slide, and a timer."),
+            ]),
+            ShortcutCategory(name: "View", shortcuts: [
+                Shortcut(name: "Normal view",            keys: "⌘+⌥+N",       description: "Switches to Normal view with slide editor and notes panel."),
+                Shortcut(name: "Slide Sorter view",      keys: "⌘+⌥+S",       description: "Switches to Slide Sorter view to rearrange slides."),
+                Shortcut(name: "Zoom in",                keys: "⌘++",         description: "Zooms in on the slide editor."),
+                Shortcut(name: "Zoom out",               keys: "⌘+-",         description: "Zooms out on the slide editor."),
+                Shortcut(name: "Fit slide to window",    keys: "⌘+⇧+F",       description: "Resizes the slide to fit the current window."),
             ]),
         ]
     )
