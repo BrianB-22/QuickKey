@@ -101,7 +101,9 @@ final class ShortcutsDatabase {
                 Shortcut(name: "Area screenshot",        keys: "⌘+⇧+4",       description: "Lets you drag a rectangle to capture a specific part of the screen."),
                 Shortcut(name: "Screenshot toolbar",     keys: "⌘+⇧+5",       description: "Opens the Screenshot toolbar with options for window, area, full-screen, or screen recording."),
                 Shortcut(name: "Screenshot window",      keys: "⌘+⇧+4+then+Space", description: "After pressing Space, click any window to capture just that window with a drop shadow."),
-                Shortcut(name: "Screenshot to clipboard",keys: "⌘+⌃+⇧+3",     description: "Captures the full screen directly to the clipboard instead of saving a file."),
+                Shortcut(name: "Screenshot to clipboard",      keys: "⌘+⌃+⇧+3",              description: "Captures the full screen directly to the clipboard instead of saving a file."),
+                Shortcut(name: "Area screenshot to clipboard", keys: "⌘+⌃+⇧+4",              description: "Drag to select an area — copies it directly to the clipboard instead of saving."),
+                Shortcut(name: "Window screenshot to clipboard", keys: "⌘+⌃+⇧+4+then+Space", description: "After pressing Space, click a window to copy it directly to the clipboard."),
             ]),
             ShortcutCategory(name: "System & Window", shortcuts: [
                 Shortcut(name: "Spotlight",              keys: "⌘+Space",     description: "Opens Spotlight Search to find files, apps, emails, calculations, and web results."),
