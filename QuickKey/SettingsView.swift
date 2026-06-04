@@ -172,12 +172,12 @@ struct SettingsView: View {
             Divider()
 
             VStack(spacing: 4) {
-                Link("github.com/BrianB-22/QuickKey", destination: URL(string: "https://github.com/BrianB-22/QuickKey")!)
+                Link("dejatechsolutions.com", destination: URL(string: "https://dejatechsolutions.com")!)
                     .font(.caption)
                 Text("Version \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0")")
                     .font(.caption)
                     .foregroundStyle(.secondary)
-                Text("Vibed by Brian Bernacki")
+                Text("DejaTech Solutions, LLC")
                     .font(.caption2)
                     .foregroundStyle(.tertiary)
             }

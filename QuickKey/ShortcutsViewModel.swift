@@ -13,18 +13,22 @@ final class ShortcutsViewModel: ObservableObject {
 
     init(settings: SettingsStore) {
         self.settings = settings
+        allApps = ShortcutsViewModel.filteredApps(database: database, installedOnly: settings.showInstalledAppsOnly)
         // Forward favorites changes so the view re-renders
         favoritesStore.objectWillChange.sink { [weak self] in
             self?.objectWillChange.send()
         }.store(in: &cancellables)
-        // Re-render when the installed-apps filter toggle changes
-        settings.$showInstalledAppsOnly.sink { [weak self] _ in
-            self?.objectWillChange.send()
+        // Rebuild the app list once when the filter toggle changes
+        settings.$showInstalledAppsOnly.sink { [weak self] installedOnly in
+            guard let self else { return }
+            self.allApps = ShortcutsViewModel.filteredApps(database: self.database, installedOnly: installedOnly)
         }.store(in: &cancellables)
     }
 
-    var allApps: [AppShortcuts] {
-        guard settings.showInstalledAppsOnly else { return database.allApps }
+    @Published private(set) var allApps: [AppShortcuts]
+
+    private static func filteredApps(database: ShortcutsDatabase, installedOnly: Bool) -> [AppShortcuts] {
+        guard installedOnly else { return database.allApps }
         return database.allApps.filter { app in
             if app.bundleIdentifiers.isEmpty && app.hostBundleIdentifiers.isEmpty { return true }
             let directMatch = app.bundleIdentifiers.contains {

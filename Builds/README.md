@@ -13,20 +13,4 @@ Click the `.dmg` filename above, then click the **Download** button on the right
 1. Open the downloaded `.dmg` file
 2. Drag **QuickKey.app** into your **Applications** folder
 3. Eject the disk image
-
-## First Launch (Gatekeeper Warning)
-
-Because QuickKey is not signed with an Apple Developer certificate, macOS will block it on the first open. You only need to do this once — after that it opens normally.
-
-### macOS Ventura and later (recommended)
-
-1. Double-click QuickKey — a warning will appear. Click **Done** (do not click Move to Trash)
-2. Open **System Settings → Privacy & Security**
-3. Scroll down to the **"QuickKey was blocked"** message
-4. Click **Open Anyway** and enter your password if prompted
-
-### Older macOS versions
-
-1. In **Finder**, navigate to **Applications**
-2. **Right-click** QuickKey → **Open**
-3. Click **Open** in the dialog that appears
+4. Launch QuickKey from Applications — it will appear as a keyboard icon in the menu bar
